@@ -1,3 +1,3 @@
-# Godot Starter
+# Godot Exploration
 
-Starter time!
+Exploration time! :)c
