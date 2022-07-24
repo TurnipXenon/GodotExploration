@@ -1,0 +1,4 @@
+enum ControlScheme {
+    PLAYER,
+    ENEMY,
+}
