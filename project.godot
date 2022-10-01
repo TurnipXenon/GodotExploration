@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Testing 01"
-run/main_scene="res://Scenes/Root.tscn"
+run/main_scene="res://scenes/simple_pong/SimplePong.tscn"
 config/icon="res://icon.png"
 
 [display]
