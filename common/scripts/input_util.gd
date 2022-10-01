@@ -1,6 +1,6 @@
 class_name InputUtil
 
-const InputEnum = preload("res://assets/scripts/input_enum.gd")
+const InputEnum = preload("res://common/scripts/input_enum.gd")
 
 const control_scheme_dict = {
     InputEnum.ControlScheme.PLAYER: "ui",
