@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "InputUtil",
 "language": "GDScript",
-"path": "res://assets/scripts/input_util.gd"
+"path": "res://common/scripts/input_util.gd"
 } ]
 _global_script_class_icons={
 "GitAPI": "",
