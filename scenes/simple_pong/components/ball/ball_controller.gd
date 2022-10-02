@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const InputEnum = preload("res://assets/scripts/input_enum.gd")
+const InputEnum = preload("res://common/scripts/input_enum.gd")
 
 export var input_strength: float  = 4
 export var control_scheme: int = InputEnum.ControlScheme.PLAYER
