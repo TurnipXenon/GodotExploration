@@ -8,14 +8,16 @@
 
 [node name="PlayerPaddle" parent="." instance=ExtResource( 1 )]
 position = Vector2( 40, 90 )
+control_scheme = 1
 
 [node name="EnemyPaddle" parent="." instance=ExtResource( 1 )]
 position = Vector2( 280, 90 )
-control_scheme = 1
 
 [node name="Ball" parent="." instance=ExtResource( 2 )]
 position = Vector2( 160, 90 )
-input_strength = 2000.0
+ball_speed = 1000
+min_velocity = Vector2( 1, 5 )
+max_velocity = Vector2( 10, 10 )
 
 [node name="WallSouth" parent="." instance=ExtResource( 3 )]
 position = Vector2( 160, 190 )

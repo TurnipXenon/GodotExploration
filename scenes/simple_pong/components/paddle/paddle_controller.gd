@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 const InputEnum = preload("res://common/scripts/input_enum.gd")
 
-export var input_strength: float  = 4
-export var control_scheme: int = InputEnum.ControlScheme.PLAYER
+export(float) var input_strength = 4.0
+export(InputEnum.ControlScheme) var control_scheme = InputEnum.ControlScheme.PLAYER
 
 var up_key = "ui_up"
 var down_key = "ui_down"
@@ -17,5 +17,6 @@ func _ready():
 func _process(delta):
    var input_value = Vector2.ZERO
    input_value.y = Input.get_action_strength(down_key) - Input.get_action_strength(up_key)
+   # warning-ignore:return_value_discarded
    move_and_collide(input_value * delta * input_strength)
 
