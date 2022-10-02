@@ -15,6 +15,7 @@ control_scheme = 1
 
 [node name="Ball" parent="." instance=ExtResource( 2 )]
 position = Vector2( 160, 90 )
+input_strength = 2000.0
 
 [node name="WallSouth" parent="." instance=ExtResource( 3 )]
 position = Vector2( 160, 190 )
