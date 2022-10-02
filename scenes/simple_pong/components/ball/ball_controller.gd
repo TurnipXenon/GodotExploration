@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const InputEnum = preload("res://common/scripts/input_enum.gd")
+const InputEnum: Resource = preload("res://common/scripts/input_enum.gd")
 
 export(int) var ball_speed = 500
 export(Vector2) var min_velocity = Vector2.ONE
@@ -27,11 +27,11 @@ func _ready():
    _start_process_time = OS.get_ticks_msec() + (1000 * start_delay)
 
 func _process(delta):
-   # warning-ignore:return_value_discarded
    if not _should_start_process:
       _should_start_process = OS.get_ticks_msec() > _start_process_time
       return
-   
+      
+   # warning-ignore:return_value_discarded
    move_and_slide(_current_velocity * delta * ball_speed)
    if get_slide_count() > 0:
       var collision = get_slide_collision(0)
