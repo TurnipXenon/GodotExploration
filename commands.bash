@@ -12,13 +12,19 @@ done
 case $command in
 
     lint)
-        echo -n "Checking for formatting problems in Godot files"
+        echo "Checking for formatting problems in Godot files..."
+        source env/Scripts/activate # activating bash in Windows 10 Git Bash
+        pip3 install 'gdtoolkit==3.*' -q
         gdlint common scenes
+        deactivate
         ;;
 
     format)
-        echo -n "Formatting Godot files"
-        gdlint common scenes
+        echo "Formatting Godot files..."
+        source env/Scripts/activate # activating bash in Windows 10 Git Bash
+        pip3 install 'gdtoolkit==3.*' -q
+        gdformat common scenes
+        deactivate
         ;;
 
     *)
