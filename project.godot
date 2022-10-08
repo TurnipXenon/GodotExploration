@@ -9,19 +9,13 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "EditorVCSInterface",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://addons/godot-git-plugin/git_api.gdns"
-}, {
-"base": "Reference",
-"class": "InputUtil",
+"base": "Resource",
+"class": "DebugConfig",
 "language": "GDScript",
-"path": "res://common/scripts/input_util.gd"
+"path": "res://common/singletons/debug_singletons/debug_config.gd"
 } ]
 _global_script_class_icons={
-"GitAPI": "",
-"InputUtil": ""
+"DebugConfig": ""
 }
 
 [application]
@@ -45,7 +39,7 @@ version_control_plugin_name="GitAPI"
 
 [gdnative]
 
-singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+singletons=[  ]
 
 [input]
 
