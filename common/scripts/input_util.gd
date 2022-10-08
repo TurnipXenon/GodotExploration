@@ -1,10 +1,8 @@
 class_name InputUtil
 
-const InputEnum: Resource = preload("res://common/scripts/input_enum.gd")
-
 const CONTROL_SCHEME_DICT = {
-	InputEnum.ControlScheme.PLAYER: "ui",
 	InputEnum.ControlScheme.ENEMY: "enemy",
+	InputEnum.ControlScheme.PLAYER: "ui",
 }
 
 
