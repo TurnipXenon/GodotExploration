@@ -9,13 +9,13 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Resource",
-"class": "DebugConfig",
+"base": "Reference",
+"class": "InputUtil",
 "language": "GDScript",
-"path": "res://common/singletons/debug_singletons/debug_config.gd"
+"path": "res://common/scripts/input_util.gd"
 } ]
 _global_script_class_icons={
-"DebugConfig": ""
+"InputUtil": ""
 }
 
 [application]
@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="GodotExploration"
 run/main_scene="res://scenes/simple_pong/SimplePong.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+InputEnum="*res://common/scripts/input_enum.gd"
 
 [display]
 
