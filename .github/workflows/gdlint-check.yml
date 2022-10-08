@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: GDScript lint check
 run-name: Checking ${{ github.actor }}'s code with GDToolkit lint
 
 on: [push]
@@ -7,7 +7,7 @@ on: [push]
 # How to fail: https://stackoverflow.com/questions/57903836/how-to-fail-a-job-in-github-actions
 # Base script: https://github.com/actions/starter-workflows/blob/main/ci/pylint.yml
 jobs:
-  Explore-GitHub-Actions:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
