@@ -1,10 +1,8 @@
 extends Node
 
-enum ControlScheme {
-	PLAYER,
-	ENEMY,
-}
+# gdlint: disable = class-definitions-order
 
+# region Universal
 enum LogLevel {
 	INHERIT = -1,
 	OFF = 0,
@@ -19,3 +17,17 @@ enum LogLevel {
 }
 
 const LOG_LEVEL_KEY = "LogLevel"
+# endregion Universal
+
+# region General
+enum ControlScheme {
+	PLAYER,
+	ENEMY,
+}
+# endregion General
+
+# region Pong
+enum PongMode { MULTIPLAYER, SINGLEPLAYER }
+# endregion Pong
+
+# gdlint: enable=class-definitions-order

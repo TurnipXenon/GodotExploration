@@ -28,12 +28,30 @@ _global_script_classes=[ {
 "class": "PaddleController",
 "language": "GDScript",
 "path": "res://scenes/simple_pong/components/paddle/paddle_controller.gd"
+}, {
+"base": "Node",
+"class": "PongMenu",
+"language": "GDScript",
+"path": "res://scenes/simple_pong/menu/pong_menu.gd"
+}, {
+"base": "Reference",
+"class": "SimplePong",
+"language": "GDScript",
+"path": "res://scenes/simple_pong/simple_pong.gd"
+}, {
+"base": "Reference",
+"class": "SimplePongMeta",
+"language": "GDScript",
+"path": "res://scenes/simple_pong/simple_pong_meta.gd"
 } ]
 _global_script_class_icons={
 "DebugConfig": "",
 "DebugUtil": "",
 "InputUtil": "",
-"PaddleController": ""
+"PaddleController": "",
+"PongMenu": "",
+"SimplePong": "",
+"SimplePongMeta": ""
 }
 
 [application]
@@ -44,7 +62,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GameEnums="*res://common/utils/game_enums.gd"
+GameConstants="*res://common/utils/game_enums.gd"
 SceneUtil="*res://common/utils/scene_util.gd"
 
 [display]
