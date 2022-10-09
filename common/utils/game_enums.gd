@@ -5,7 +5,6 @@ enum ControlScheme {
 	ENEMY,
 }
 
-const LOG_LEVEL_KEY = "LogLevel"
 enum LogLevel {
 	INHERIT = -1,
 	OFF = 0,
@@ -18,3 +17,5 @@ enum LogLevel {
 	FATAL = 700,
 	FORCE_ON = 800
 }
+
+const LOG_LEVEL_KEY = "LogLevel"
