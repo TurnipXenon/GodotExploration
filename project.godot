@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "InputUtil",
 "language": "GDScript",
 "path": "res://common/utils/input_util.gd"
+}, {
+"base": "Reference",
+"class": "PaddleBehaviorUtil",
+"language": "GDScript",
+"path": "res://scenes/simple_pong/components/paddle/paddle_behavior_util.gd"
 } ]
 _global_script_class_icons={
 "DebugConfig": "",
 "DebugUtil": "",
-"InputUtil": ""
+"InputUtil": "",
+"PaddleBehaviorUtil": ""
 }
 
 [application]
