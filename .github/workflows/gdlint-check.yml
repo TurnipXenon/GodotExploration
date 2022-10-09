@@ -1,5 +1,5 @@
 name: GDScript lint check
-run-name: Checking ${{ github.actor }}'s code with GDToolkit lint
+run-name: Checking ${{ github.event.pull_request.title }} by ${{ github.actor }}
 
 on: [push]
 
