@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-log_level = 300
+log_level = 500
