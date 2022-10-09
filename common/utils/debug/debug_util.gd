@@ -5,10 +5,10 @@ const DEBUG_CONFIG: DebugConfig = preload("res://common/utils/debug/configs/defa
 
 
 static func log(message: String, config: Dictionary = {}) -> void:
-	if !(GameEnums.LOG_LEVEL_KEY in config):
+	if !(GameConstants.LOG_LEVEL_KEY in config):
 		return
 
-	if config[GameEnums.LOG_LEVEL_KEY] < DEBUG_CONFIG.log_level:
+	if config[GameConstants.LOG_LEVEL_KEY] < DEBUG_CONFIG.log_level:
 		return
 
 	print(message)
