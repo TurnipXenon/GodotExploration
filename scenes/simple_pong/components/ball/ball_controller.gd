@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-const InputEnum: Resource = preload("res://common/scripts/input_enum.gd")
-
 export(int) var ball_speed = 500
 export(Vector2) var min_velocity = Vector2.ONE
 export(Vector2) var max_velocity = Vector2.ONE * 5

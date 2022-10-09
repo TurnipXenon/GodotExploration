@@ -9,12 +9,24 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "DebugConfig",
+"language": "GDScript",
+"path": "res://common/utils/debug/debug_config.gd"
+}, {
+"base": "Reference",
+"class": "DebugUtil",
+"language": "GDScript",
+"path": "res://common/utils/debug/debug_util.gd"
+}, {
 "base": "Reference",
 "class": "InputUtil",
 "language": "GDScript",
-"path": "res://common/scripts/input_util.gd"
+"path": "res://common/utils/input_util.gd"
 } ]
 _global_script_class_icons={
+"DebugConfig": "",
+"DebugUtil": "",
 "InputUtil": ""
 }
 
@@ -26,7 +38,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-InputEnum="*res://common/scripts/input_enum.gd"
+GameEnums="*res://common/utils/game_enums.gd"
 
 [display]
 

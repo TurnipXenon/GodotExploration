@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export(float) var input_strength = 4.0
-export(InputEnum.ControlScheme) var control_scheme = InputEnum.ControlScheme.PLAYER
+export(GameEnums.ControlScheme) var control_scheme = GameEnums.ControlScheme.PLAYER
 
 var up_key: String = "ui_up"
 var down_key: String = "ui_down"
