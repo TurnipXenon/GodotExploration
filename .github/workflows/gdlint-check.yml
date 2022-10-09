@@ -1,5 +1,5 @@
 name: GDScript lint check
-run-name: Checking ${{ github.event.pull_request.title }} by ${{ github.actor }}
+run-name: Checking PR \#${{ github.event.pull_request.number }} by ${{ github.actor }}
 
 on: [push]
 
