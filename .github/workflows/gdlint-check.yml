@@ -1,5 +1,4 @@
 name: GDScript lint check
-run-name: Checking ${{ github.actor }}'s code with GDToolkit lint
 
 on: [push]
 
