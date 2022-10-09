@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "PaddleBehaviorUtil",
 "language": "GDScript",
 "path": "res://scenes/simple_pong/components/paddle/paddle_behavior_util.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "PaddleController",
+"language": "GDScript",
+"path": "res://scenes/simple_pong/components/paddle/paddle_controller.gd"
 } ]
 _global_script_class_icons={
 "DebugConfig": "",
 "DebugUtil": "",
 "InputUtil": "",
-"PaddleBehaviorUtil": ""
+"PaddleBehaviorUtil": "",
+"PaddleController": ""
 }
 
 [application]

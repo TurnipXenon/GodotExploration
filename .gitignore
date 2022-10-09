@@ -16,3 +16,6 @@ data_*/
 
 # Python
 env/
+
+# ide
+.vscode/
