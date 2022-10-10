@@ -1,16 +1,8 @@
 content: dev delight:
-- '.github/*'
-- '.github/**/*'
+- any: ['.github/*', '.github/**/*']
 
 content: documentation:
-- 'docs/*'
-- 'docs/**/*'
-- 'README.md'
-- 'THIRD_PARTY_SOFTWARES.md'
+- any: ['docs/*', 'docs/**/*', 'README.md', 'THIRD_PARTY_SOFTWARES.md']
 
 content: game:
-- 'common/*'
-- 'common/**/*'
-- 'scenes/*'
-- 'scenes/**/*'
-- 'project.godot'
+- any: ['common/*', 'common/**/*', 'scenes/*', 'scenes/**/*', 'project.godot']
