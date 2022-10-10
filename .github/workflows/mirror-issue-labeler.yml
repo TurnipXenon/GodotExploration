@@ -1,0 +1,2 @@
+- name: Mirror Labels to Child
+  uses: TinkurLab/mirror-labels-to-child-action@2.0.2
