@@ -1,8 +1,0 @@
-content: dev delight:
-- any: ['.github/*', '.github/**/*']
-
-content: documentation:
-- any: ['docs/*', 'docs/**/*', 'README.md', 'THIRD_PARTY_SOFTWARES.md']
-
-content: game:
-- any: ['common/*', 'common/**/*', 'scenes/*', 'scenes/**/*', 'project.godot']
