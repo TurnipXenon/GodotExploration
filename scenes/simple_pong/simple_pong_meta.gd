@@ -11,4 +11,4 @@ static func get_resource() -> Resource:
 
 
 func to_dictionary() -> Dictionary:
-	return {SceneUtil.KEY_PONG_MODE: pong_mode}
+	return {SceneUtil.KEY_SIMPLE_PONG: self}

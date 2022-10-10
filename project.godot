@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "BallController",
+"language": "GDScript",
+"path": "res://scenes/simple_pong/components/ball/ball_controller.gd"
+}, {
 "base": "Resource",
 "class": "DebugConfig",
 "language": "GDScript",
@@ -24,7 +29,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://common/utils/input_util.gd"
 }, {
-"base": "Node",
+"base": "Reference",
+"class": "InterfacesUtil",
+"language": "GDScript",
+"path": "res://common/utils/interfaces_util.gd"
+}, {
+"base": "Reference",
 "class": "PaddleBehavior",
 "language": "GDScript",
 "path": "res://scenes/simple_pong/components/paddle/behavior/paddle_behavior.gd"
@@ -54,6 +64,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/simple_pong/components/pong_player.gd"
 }, {
+"base": "Resource",
+"class": "PongPlayerObject",
+"language": "GDScript",
+"path": "res://scenes/simple_pong/components/pong_round/pong_player_object.gd"
+}, {
+"base": "Node",
+"class": "PongRound",
+"language": "GDScript",
+"path": "res://scenes/simple_pong/components/pong_round/pong_round.gd"
+}, {
+"base": "Node",
+"class": "PongWall",
+"language": "GDScript",
+"path": "res://scenes/simple_pong/components/wall/pong_wall.gd"
+}, {
 "base": "Node",
 "class": "SimplePong",
 "language": "GDScript",
@@ -65,15 +90,20 @@ _global_script_classes=[ {
 "path": "res://scenes/simple_pong/simple_pong_meta.gd"
 } ]
 _global_script_class_icons={
+"BallController": "",
 "DebugConfig": "",
 "DebugUtil": "",
 "InputUtil": "",
+"InterfacesUtil": "",
 "PaddleBehavior": "",
 "PaddleController": "",
 "PaddleKeyboardInput": "",
 "PaddleSimpleAI": "",
 "PongMenu": "",
 "PongPlayer": "",
+"PongPlayerObject": "",
+"PongRound": "",
+"PongWall": "",
 "SimplePong": "",
 "SimplePongMeta": ""
 }

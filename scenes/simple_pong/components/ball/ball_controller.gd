@@ -1,3 +1,4 @@
+class_name BallController
 extends KinematicBody2D
 
 export(int) var ball_speed = 500
@@ -6,6 +7,8 @@ export(Vector2) var max_velocity = Vector2.ONE * 5
 
 # we need this one to prevent a bug where delta is big due to slow start
 export(float) var start_delay = 2.0
+
+var should_stop: bool = false
 
 var _current_velocity: Vector2 = Vector2.ZERO
 var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
@@ -27,7 +30,7 @@ func _ready():
 
 
 func _process(delta):
-	if not _should_start_process:
+	if not _should_start_process or should_stop:
 		_should_start_process = OS.get_ticks_msec() > _start_process_time
 		return
 
@@ -37,6 +40,8 @@ func _process(delta):
 		var collision = get_slide_collision(0)
 		if collision:
 			_current_velocity = _current_velocity.bounce(collision.normal)
+			if collision.collider.has_method("hit"):
+				collision.collider.hit()
 
 
 func _randomize_velocity() -> Vector2:

@@ -1,67 +1,54 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/simple_pong/components/paddle/behavior/paddle_keyboard_input.gd" type="Script" id=1]
-[ext_resource path="res://scenes/simple_pong/components/paddle/paddle_controller.gd" type="Script" id=2]
-[ext_resource path="res://scenes/simple_pong/components/ball/ball_controller.gd" type="Script" id=3]
-[ext_resource path="res://scenes/simple_pong/components/Wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/simple_pong/components/pong_round/pong_round.gd" type="Script" id=2]
+[ext_resource path="res://scenes/simple_pong/components/pong_round/pong_player_object.gd" type="Script" id=3]
+[ext_resource path="res://scenes/simple_pong/components/wall/Wall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/simple_pong/components/paddle/Paddle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/simple_pong/components/ball/Ball.tscn" type="PackedScene" id=6]
 
-[node name="PongRound" type="Node"]
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+paddle_controller = NodePath("PlayerPaddle")
+wall = NodePath("WallWest")
 
-[node name="PlayerPaddle" type="KinematicBody2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( 40, 90 )
+[sub_resource type="Resource" id=2]
+script = ExtResource( 3 )
+paddle_controller = NodePath("EnemyPaddle")
+wall = NodePath("WallEast")
+
+[node name="PongRound" type="Node"]
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-input_strength = 80.0
+player_objects = [ SubResource( 1 ), SubResource( 2 ) ]
+ball_path = NodePath("Ball")
+
+[node name="PlayerPaddle" parent="." instance=ExtResource( 5 )]
+position = Vector2( 40, 90 )
 behavior_script = ExtResource( 1 )
 
-[node name="EnemyPaddle" type="KinematicBody2D" parent="." instance=ExtResource( 5 )]
+[node name="EnemyPaddle" parent="." instance=ExtResource( 5 )]
 position = Vector2( 280, 90 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-input_strength = 80.0
 control_scheme = 1
 behavior_script = ExtResource( 1 )
 
-[node name="Ball" type="KinematicBody2D" parent="." instance=ExtResource( 6 )]
+[node name="Ball" parent="." instance=ExtResource( 6 )]
 position = Vector2( 160, 90 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
 ball_speed = 1000
 min_velocity = Vector2( 1, 5 )
 max_velocity = Vector2( 10, 10 )
 
-[node name="WallSouth" type="KinematicBody2D" parent="." instance=ExtResource( 4 )]
+[node name="WallSouth" parent="." instance=ExtResource( 4 )]
 position = Vector2( 160, 190 )
 scale = Vector2( 16, 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="WallNorth" type="KinematicBody2D" parent="." instance=ExtResource( 4 )]
+[node name="WallNorth" parent="." instance=ExtResource( 4 )]
 position = Vector2( 160, -10 )
 scale = Vector2( 16, 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="WallWest" type="KinematicBody2D" parent="." instance=ExtResource( 4 )]
+[node name="WallWest" parent="." instance=ExtResource( 4 )]
 position = Vector2( -10, 90 )
 scale = Vector2( 1, 9 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="WallEast" type="KinematicBody2D" parent="." instance=ExtResource( 4 )]
+[node name="WallEast" parent="." instance=ExtResource( 4 )]
 position = Vector2( 330, 90 )
 scale = Vector2( 1, 9 )
-__meta__ = {
-"_edit_group_": true
-}

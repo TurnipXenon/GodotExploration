@@ -5,6 +5,7 @@ extends Node
 
 const KEY_PONG_MODE = "pong_mode"
 const KEY_PONG_PLAYERS = "pong_players"
+const KEY_SIMPLE_PONG = "simple_pong"
 
 var current_scene: Node = null
 var current_args: Dictionary = {}
