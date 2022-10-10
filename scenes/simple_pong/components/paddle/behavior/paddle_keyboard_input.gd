@@ -1,3 +1,4 @@
+class_name PaddleKeyboardInput
 extends Node
 
 var up_key: String = "ui_up"

@@ -1,6 +1,7 @@
 class_name SimplePongMeta
 
 var pong_mode = GameConstants.PongMode.MULTIPLAYER
+var player_list: Array = []  # array of PongPlayers
 
 
 static func get_resource() -> Resource:
@@ -8,4 +9,4 @@ static func get_resource() -> Resource:
 
 
 func to_dictionary() -> Dictionary:
-	return {SceneUtil.KEY_PONG_MODE: pong_mode}
+	return {SceneUtil.KEY_SIMPLE_PONG: self}
