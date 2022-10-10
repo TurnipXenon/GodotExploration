@@ -1,7 +1,12 @@
+class_name PaddleKeyboardInput
 extends Node
 
 var up_key: String = "ui_up"
 var down_key: String = "ui_down"
+
+
+static func get_resource() -> Resource:
+	return load("res://scenes/simple_pong/components/paddle/behavior/paddle_keyboard_input.gd")
 
 
 func initialize(paddle: PaddleController) -> void:

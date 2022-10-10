@@ -1,39 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scenes/simple_pong/components/paddle/Paddle.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/simple_pong/components/ball/Ball.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/simple_pong/components/Wall.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/simple_pong/components/paddle/behavior/paddle_keyboard_input.gd" type="Script" id=4]
+[ext_resource path="res://scenes/simple_pong/simple_pong.gd" type="Script" id=1]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="PlayerPaddle" parent="." instance=ExtResource( 1 )]
-position = Vector2( 40, 90 )
-behavior_script = ExtResource( 4 )
-
-[node name="EnemyPaddle" parent="." instance=ExtResource( 1 )]
-position = Vector2( 280, 90 )
-control_scheme = 1
-behavior_script = ExtResource( 4 )
-
-[node name="Ball" parent="." instance=ExtResource( 2 )]
-position = Vector2( 160, 90 )
-ball_speed = 1000
-min_velocity = Vector2( 1, 5 )
-max_velocity = Vector2( 10, 10 )
-
-[node name="WallSouth" parent="." instance=ExtResource( 3 )]
-position = Vector2( 160, 190 )
-scale = Vector2( 16, 1 )
-
-[node name="WallNorth" parent="." instance=ExtResource( 3 )]
-position = Vector2( 160, -10 )
-scale = Vector2( 16, 1 )
-
-[node name="WallWest" parent="." instance=ExtResource( 3 )]
-position = Vector2( -10, 90 )
-scale = Vector2( 1, 9 )
-
-[node name="WallEast" parent="." instance=ExtResource( 3 )]
-position = Vector2( 330, 90 )
-scale = Vector2( 1, 9 )
+script = ExtResource( 1 )

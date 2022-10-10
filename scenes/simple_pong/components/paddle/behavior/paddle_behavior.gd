@@ -1,9 +1,7 @@
-class_name PaddleSimpleAI
+class_name PaddleBehavior
 extends Node
 
-
-static func get_resource() -> Resource:
-	return load("res://scenes/simple_pong/components/paddle/behavior/paddle_simple_ai.gd")
+# Serves as an interface
 
 
 func initialize(_paddle: PaddleController) -> void:
