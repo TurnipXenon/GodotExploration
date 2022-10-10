@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/simple_pong/components/paddle/behavior/paddle_keyboard_input.gd" type="Script" id=1]
 [ext_resource path="res://scenes/simple_pong/components/pong_round/pong_round.gd" type="Script" id=2]
@@ -6,21 +6,33 @@
 [ext_resource path="res://scenes/simple_pong/components/wall/Wall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/simple_pong/components/paddle/Paddle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/simple_pong/components/ball/Ball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/simple_pong/components/score_label.gd" type="Script" id=7]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 3 )
 paddle_controller = NodePath("PlayerPaddle")
-wall = NodePath("WallWest")
+wall = NodePath("WallEast")
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 3 )
 paddle_controller = NodePath("EnemyPaddle")
-wall = NodePath("WallEast")
+wall = NodePath("WallWest")
 
 [node name="PongRound" type="Node"]
 script = ExtResource( 2 )
 player_objects = [ SubResource( 1 ), SubResource( 2 ) ]
 ball_path = NodePath("Ball")
+score_path = NodePath("Score")
+
+[node name="Score" type="Label" parent="."]
+visible = false
+margin_left = 143.0
+margin_top = 14.0
+margin_right = 183.0
+margin_bottom = 28.0
+text = "1 - 1"
+align = 1
+script = ExtResource( 7 )
 
 [node name="PlayerPaddle" parent="." instance=ExtResource( 5 )]
 position = Vector2( 40, 90 )
@@ -52,3 +64,5 @@ scale = Vector2( 1, 9 )
 [node name="WallEast" parent="." instance=ExtResource( 4 )]
 position = Vector2( 330, 90 )
 scale = Vector2( 1, 9 )
+
+[node name="Timer" type="Timer" parent="."]
