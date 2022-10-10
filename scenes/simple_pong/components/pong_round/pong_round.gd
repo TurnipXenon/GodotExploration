@@ -6,6 +6,7 @@ export(NodePath) var ball_path
 
 var pong_meta: SimplePongMeta
 var ball: BallController
+var game
 
 
 func _ready():
@@ -13,8 +14,10 @@ func _ready():
 	ball = get_node(ball_path)
 
 
-func initialize(pong_meta_: SimplePongMeta) -> void:
+func initialize(pong_meta_: SimplePongMeta, game_) -> void:
 	assert(len(player_objects) == len(pong_meta_.player_list))
+
+	game = game_
 	pong_meta = pong_meta_
 	var player_list = pong_meta.player_list
 	var fn = funcref(self, "inform_done")
@@ -27,3 +30,5 @@ func initialize(pong_meta_: SimplePongMeta) -> void:
 
 func inform_done():
 	ball.should_stop = true
+	# game ends over here
+	game.end_round()
