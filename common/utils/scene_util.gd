@@ -3,8 +3,6 @@ extends Node
 # gdlint:ignore = max-line-length
 # taken from: https://docs.godotengine.org/en/3.1/getting_started/step_by_step/singletons_autoload.html#global-gd
 
-const KEY_PONG_MODE = "pong_mode"
-const KEY_PONG_PLAYERS = "pong_players"
 const KEY_SIMPLE_PONG = "simple_pong"
 
 var current_scene: Node = null

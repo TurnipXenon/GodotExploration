@@ -1,7 +1,5 @@
 class_name SimplePongMeta
 
-# var PongPlayerResource = PongPlayer.get_resource()
-
 var pong_mode = GameConstants.PongMode.MULTIPLAYER
 var player_list: Array = []  # array of PongPlayers
 
