@@ -116,7 +116,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GameConstants="*res://common/utils/game_enums.gd"
+GameConstants="*res://common/utils/game_constants.gd"
 SceneUtil="*res://common/utils/scene_util.gd"
 
 [display]

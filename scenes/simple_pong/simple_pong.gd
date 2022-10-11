@@ -11,27 +11,24 @@ static func get_scene_path() -> String:
 	return "res://scenes/simple_pong/SimplePong.tscn"
 
 
-func _ready():
+func _ready() -> void:
 	pong_meta = SceneUtil.current_args[SceneUtil.KEY_SIMPLE_PONG]
 
 	assert(pong_round_scene != null)
 
 	start_round()
 
-	# todo(turnip): show score
 
-	# todo(turnip): countdown
-
-	# todo(turnip): start ball
-
-
-func start_round():
+func start_round() -> void:
 	pong_round = pong_round_scene.instance()
 	pong_round.initialize(pong_meta, self)
 	add_child(pong_round)
 
 
-func end_round():
-	# todo(turnip): add delay over here
+func end_round() -> void:
+	if pong_meta.is_done():
+		SceneUtil.goto_scene(GameConstants.PONG_MENU_SCENE_PATH)
+		return
+
 	pong_round.queue_free()
 	start_round()
