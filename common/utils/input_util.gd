@@ -13,5 +13,5 @@ static func get_prefix(scheme: int) -> String:
 			"InputUtil: get_prefix: invalid scheme: %d. Defaulting to PLAYER" % scheme,
 			{GameConstants.LOG_LEVEL_KEY: GameConstants.LogLevel.ERROR}
 		)
-		return GameConstants.ControlScheme.PLAYER
+		return CONTROL_SCHEME_DICT[GameConstants.ControlScheme.PLAYER]
 	return CONTROL_SCHEME_DICT[scheme]
