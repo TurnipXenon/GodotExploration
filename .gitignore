@@ -21,3 +21,6 @@ env/
 # ide
 .vscode/
 .idea/
+
+# linting locally for godot 4.0 beta 2
+godot-gdscript-toolkit/

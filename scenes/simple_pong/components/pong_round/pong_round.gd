@@ -2,7 +2,7 @@ class_name PongRound
 extends Node
 
 @export var score_delay_duration: float = 3.0
-@export var player_objects: Array[Resource] # (Array, Resource)
+@export var player_objects: Array[Resource]  # (Array, Resource)
 @export var ball_path: NodePath
 @export var score_path: NodePath
 
@@ -45,6 +45,7 @@ func inform_done():
 	score.show()
 	timer.wait_time = score_delay_duration
 	timer.start()
+	# gdlint:ignore = expression-not-assigned
 	await timer.timeout
 	score.hide()
 	game.end_round()

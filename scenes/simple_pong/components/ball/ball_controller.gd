@@ -18,11 +18,11 @@ var _should_start_process: bool = false
 
 func _ready():
 	# validation
-	assert(ball_speed > 0) #,"ball_speed should be a positive number")
-	assert(min_velocity.x >= 0) #,"min_velocity.x must be greater than 0")
-	assert(min_velocity.y > 0) #,"min_velocity.y must be greater than 0")
-	assert(min_velocity.x <= max_velocity.x) #,"min_velocity.x cannot be bigger than max_velocity.x")
-	assert(min_velocity.y <= max_velocity.y) #,"min_velocity.y cannot be bigger than max_velocity.y")
+	assert(ball_speed > 0)  #,"ball_speed should be a positive number")
+	assert(min_velocity.x >= 0)  #,"min_velocity.x must be greater than 0")
+	assert(min_velocity.y > 0)  #,"min_velocity.y must be greater than 0")
+	assert(min_velocity.x <= max_velocity.x)  #,"min_velocity.x cannot be bigger than max_velocity.x")
+	assert(min_velocity.y <= max_velocity.y)  #,"min_velocity.y cannot be bigger than max_velocity.y")
 
 	# setup
 	_current_velocity = _randomize_velocity()
