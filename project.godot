@@ -9,6 +9,16 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "RefCounted",
+"class": &"Aclassname",
+"language": &"GDScript",
+"path": "res://godot-gdscript-toolkit/tests/formatter/input-output-pairs/multiline-annotations.in.gd"
+}, {
+"base": "Node",
+"class": &"Asdf",
+"language": &"GDScript",
+"path": "res://godot-gdscript-toolkit/tests/valid-gd-scripts/simple_statements.gd"
+}, {
 "base": "CharacterBody2D",
 "class": &"BallController",
 "language": &"GDScript",
@@ -23,6 +33,16 @@ _global_script_classes=[{
 "class": &"DebugUtil",
 "language": &"GDScript",
 "path": "res://common/utils/debug/debug_util.gd"
+}, {
+"base": "Node",
+"class": &"Dummy",
+"language": &"GDScript",
+"path": "res://godot-gdscript-toolkit/tests/valid-gd-scripts/class_name_w_extends.gd"
+}, {
+"base": "Node",
+"class": &"Foo",
+"language": &"GDScript",
+"path": "res://godot-gdscript-toolkit/tests/formatter/input-output-pairs/class-name-w-extends-statement.out.gd"
 }, {
 "base": "RefCounted",
 "class": &"InputUtil",
@@ -88,11 +108,25 @@ _global_script_classes=[{
 "class": &"SimplePongMeta",
 "language": &"GDScript",
 "path": "res://scenes/simple_pong/simple_pong_meta.gd"
+}, {
+"base": "RefCounted",
+"class": &"Some",
+"language": &"GDScript",
+"path": "res://godot-gdscript-toolkit/tests/formatter/input-output-pairs/class-name-statement.out.gd"
+}, {
+"base": "RefCounted",
+"class": &"X",
+"language": &"GDScript",
+"path": "res://godot-gdscript-toolkit/tests/valid-gd-scripts/newlines2.gd"
 }]
 _global_script_class_icons={
+"Aclassname": "res://aaaaaaaaaaaaa/bbbbbbbbbbbbbbb/cccccccccccc/ddddddddddd/eeeeeeeeeeeeeee/ffffffffff.tres",
+"Asdf": "",
 "BallController": "",
 "DebugConfig": "",
 "DebugUtil": "",
+"Dummy": "",
+"Foo": "",
 "InputUtil": "",
 "InterfacesUtil": "",
 "PaddleBehavior": "",
@@ -105,7 +139,9 @@ _global_script_class_icons={
 "PongRound": "",
 "PongWall": "",
 "SimplePong": "",
-"SimplePongMeta": ""
+"SimplePongMeta": "",
+"Some": "",
+"X": ""
 }
 
 [application]
