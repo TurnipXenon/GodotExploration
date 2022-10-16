@@ -1,7 +1,7 @@
 class_name SimplePong
 extends Node
 
-export(PackedScene) var pong_round_scene
+@export var pong_round_scene: PackedScene
 
 var pong_meta: SimplePongMeta
 var pong_round: PongRound
@@ -20,7 +20,7 @@ func _ready() -> void:
 
 
 func start_round() -> void:
-	pong_round = pong_round_scene.instance()
+	pong_round = pong_round_scene.instantiate()
 	pong_round.initialize(pong_meta, self)
 	add_child(pong_round)
 

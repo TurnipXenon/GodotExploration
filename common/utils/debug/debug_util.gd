@@ -1,7 +1,9 @@
 class_name DebugUtil
 
 # gdlint:ignore = max-line-length
-const DEBUG_CONFIG: DebugConfig = preload("res://common/utils/debug/configs/default_debug_config.tres")
+const DEBUG_CONFIG: DebugConfig = preload(
+	"res://common/utils/debug/configs/default_debug_config.tres"
+)
 
 
 static func log(message: String, config: Dictionary = {}) -> void:

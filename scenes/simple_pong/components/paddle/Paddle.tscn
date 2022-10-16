@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://common/sprites/blank_pixel.png" type="Texture" id=1]
+[ext_resource path="res://common/sprites/blank_pixel.png" type="Texture2D" id=1]
 [ext_resource path="res://scenes/simple_pong/components/paddle/paddle_controller.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="Paddle" type="KinematicBody2D"]
+[node name="Paddle" type="CharacterBody2D"]
 position = Vector2( 73, 90 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -13,7 +13,7 @@ __meta__ = {
 }
 input_strength = 80.0
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2( 10, 40 )
 texture = ExtResource( 1 )
 

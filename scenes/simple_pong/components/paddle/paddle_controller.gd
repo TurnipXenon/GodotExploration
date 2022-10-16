@@ -1,14 +1,14 @@
 class_name PaddleController
-extends KinematicBody2D
+extends CharacterBody2D
 
-enum BehaviorType { HUMAN, AI }
-
-export(float) var input_strength = 4.0
-export(BehaviorType) var behavior_type = BehaviorType.HUMAN
-export(GameConstants.ControlScheme) var control_scheme = GameConstants.ControlScheme.PLAYER
-export(Script) var behavior_script
+@export var input_strength: float = 4.0
+@export var behavior_type: BehaviorType = BehaviorType.HUMAN
+@export var control_scheme = GameConstants.ControlScheme.PLAYER  # (GameConstants.ControlScheme)
+@export var behavior_script: Script
 
 var behavior = null
+
+enum BehaviorType { HUMAN, AI }
 
 
 func set_behavior(behavior_):

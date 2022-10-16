@@ -1,17 +1,17 @@
 class_name PongRound
 extends Node
 
-export(float) var score_delay_duration = 3.0
-export(Array, Resource) var player_objects
-export(NodePath) var ball_path
-export(NodePath) var score_path
+@export var score_delay_duration: float = 3.0
+@export var player_objects: Array[Resource]  # (Array, Resource)
+@export var ball_path: NodePath
+@export var score_path: NodePath
 
 var pong_meta: SimplePongMeta
 var ball: BallController
 var game
 var score
 
-onready var timer = $Timer
+@onready var timer = $Timer
 
 
 func _ready():
@@ -28,7 +28,6 @@ func initialize(pong_meta_: SimplePongMeta, game_) -> void:
 	game = game_
 	pong_meta = pong_meta_
 	var player_list = pong_meta.player_list
-	var fn = funcref(self, "inform_done")
 
 	for ind in player_objects.size():
 		var player_object: PongPlayerObject = player_objects[ind]
@@ -36,7 +35,7 @@ func initialize(pong_meta_: SimplePongMeta, game_) -> void:
 		var paddle = get_node(player_object.paddle_controller)
 		paddle.set_behavior(player_meta.behavior)
 		var wall = get_node(player_object.wall)
-		wall.fn = fn
+		wall.fn = inform_done
 		wall.player = player_meta
 
 
@@ -46,6 +45,7 @@ func inform_done():
 	score.show()
 	timer.wait_time = score_delay_duration
 	timer.start()
-	yield(timer, "timeout")
+	# gdlint:ignore = expression-not-assigned
+	await timer.timeout
 	score.hide()
 	game.end_round()
