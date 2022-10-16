@@ -1,14 +1,16 @@
 class_name PaddleController
 extends CharacterBody2D
 
+enum BehaviorType { HUMAN, AI }
+
+#gdlint:disable = class-definitions-order
 @export var input_strength: float = 4.0
 @export var behavior_type: BehaviorType = BehaviorType.HUMAN
 @export var control_scheme = GameConstants.ControlScheme.PLAYER  # (GameConstants.ControlScheme)
 @export var behavior_script: Script
 
 var behavior = null
-
-enum BehaviorType { HUMAN, AI }
+#gdlint:enable = class-definitions-order
 
 
 func set_behavior(behavior_):
