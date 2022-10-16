@@ -9,3 +9,7 @@ git clone git@github.com:Scony/godot-gdscript-toolkit.git
 pip install -e godot-gdscript-toolkit/
 gdformat common scenes # proceed as normal
 ```
+
+## Editors
+Link: https://docs.godotengine.org/en/latest/tutorials/scripting/c_sharp/c_sharp_basics.html#setting-up-c-for-godot
+TODO(turnip): https://github.com/TurnipXenon/GodotExploration/issues/53
