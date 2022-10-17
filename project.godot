@@ -60,16 +60,6 @@ _global_script_classes=[{
 "path": "res://scenes/simple_pong/components/paddle/paddle_controller.gd"
 }, {
 "base": "Node",
-"class": &"PaddleKeyboardInput",
-"language": &"GDScript",
-"path": "res://scenes/simple_pong/components/paddle/behavior/paddle_keyboard_input.gd"
-}, {
-"base": "Node",
-"class": &"PaddleSimpleAI",
-"language": &"GDScript",
-"path": "res://scenes/simple_pong/components/paddle/behavior/paddle_simple_ai.gd"
-}, {
-"base": "Node",
 "class": &"PongMenu",
 "language": &"GDScript",
 "path": "res://scenes/simple_pong/menu/pong_menu.gd"
@@ -125,8 +115,6 @@ _global_script_class_icons={
 "InputUtil": "",
 "InterfacesUtil": "",
 "PaddleController": "",
-"PaddleKeyboardInput": "",
-"PaddleSimpleAI": "",
 "PongMenu": "",
 "PongPlayer": "",
 "PongPlayerObject": "",

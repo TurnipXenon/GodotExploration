@@ -1,7 +1,7 @@
 using Godot;
 
-public interface PaddleBehavior {
-  // todo(turnip): how to call gdscript
-  public void initialize(Object paddle);
-  public Vector2 act(Object paddle, float delta);
+public interface PaddleBehavior
+{
+	public void Initialize(Object paddle);
+	public Vector2 Act(Object paddle, float delta);
 }

@@ -6,7 +6,7 @@ public partial class PaddleKeyboardInput : Node, PaddleBehavior
 	private string _upKey = "ui_up";
 	private string _downKey = "ui_down";
 
-	public void initialize(Object paddle)
+	public void Initialize(Object paddle)
 	{
 		GDScript script = (GDScript)GD.Load("res://common/utils/input_util.gd");
 		var prefix = (string)script.Call("get_prefix", paddle.Get("control_scheme"));
@@ -14,7 +14,7 @@ public partial class PaddleKeyboardInput : Node, PaddleBehavior
 		_downKey = $"{prefix}_down";
 	}
 
-	public Vector2 act(Object paddle, float delta)
+	public Vector2 Act(Object paddle, float delta)
 	{
 		var inputValue = Vector2.Zero;
 		inputValue.y = Input.GetActionStrength(_downKey) - Input.GetActionStrength(_upKey);

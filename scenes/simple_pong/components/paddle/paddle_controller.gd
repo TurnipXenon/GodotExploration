@@ -15,10 +15,10 @@ var behavior = null
 
 func set_behavior(behavior_):
 	behavior = behavior_
-	behavior.initialize(self)
+	behavior.Initialize(self)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# warning-ignore:return_value_discarded
-	move_and_collide(behavior.act(self, delta))
+	move_and_collide(behavior.Act(self, delta))
