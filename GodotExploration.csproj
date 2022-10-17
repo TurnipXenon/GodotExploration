@@ -4,6 +4,6 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="scenes\simple_pong" />
+    <Folder Include="scenes\simple_pong\components\paddle\behavior" />
   </ItemGroup>
 </Project>

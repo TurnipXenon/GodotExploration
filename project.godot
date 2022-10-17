@@ -54,11 +54,6 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://common/utils/interfaces_util.gd"
 }, {
-"base": "RefCounted",
-"class": &"PaddleBehavior",
-"language": &"GDScript",
-"path": "res://scenes/simple_pong/components/paddle/behavior/paddle_behavior.gd"
-}, {
 "base": "CharacterBody2D",
 "class": &"PaddleController",
 "language": &"GDScript",
@@ -129,7 +124,6 @@ _global_script_class_icons={
 "Foo": "",
 "InputUtil": "",
 "InterfacesUtil": "",
-"PaddleBehavior": "",
 "PaddleController": "",
 "PaddleKeyboardInput": "",
 "PaddleSimpleAI": "",

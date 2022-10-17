@@ -9,8 +9,11 @@ static func get_scene_path() -> String:
 func _on_SinglePlayerButton_pressed():
 	var meta_obj = SimplePongMeta.new()
 	meta_obj.pong_mode = GameConstants.PongMode.SINGLEPLAYER
+	var PaddleKeyboardInputCSharp = load(
+		"res://scenes/simple_pong/components/paddle/behavior/PaddleKeyboardInput.cs"
+	)
 	meta_obj.player_list = [
-		PongPlayer.new(PaddleKeyboardInput.new()),
+		PongPlayer.new(PaddleKeyboardInputCSharp.new()),
 		PongPlayer.new(PaddleSimpleAI.new()),
 	]
 	SceneUtil.goto_scene(SimplePong.get_scene_path(), meta_obj.to_dictionary())
