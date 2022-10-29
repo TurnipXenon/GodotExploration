@@ -32,4 +32,7 @@
     <Content Include="Scripts\Scenes\simple_pong\simple_pong.gd" />
     <Content Include="Scripts\Scenes\simple_pong\simple_pong_meta.gd" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\Scenes\Breakout\BreakoutGame\Components" />
+  </ItemGroup>
 </Project>

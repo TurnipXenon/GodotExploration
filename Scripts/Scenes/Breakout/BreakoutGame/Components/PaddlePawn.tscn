@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2twnti5c76up"]
+
+[ext_resource type="PackedScene" uid="uid://bh80aixufupfh" path="res://Scripts/Scenes/simple_pong/components/paddle/Paddle.tscn" id="1_3mew2"]
+[ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/PaddlePawn.cs" id="2_4is3h"]
+
+[node name="Paddle" instance=ExtResource("1_3mew2")]
+position = Vector2(0, 0)
+script = ExtResource("2_4is3h")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(40, 10)
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(2, 0.5)
