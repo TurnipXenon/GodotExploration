@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://b475fq7huco8d"]
-
-[ext_resource type="Script" path="res://Scenes/simple_pong/simple_pong.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://b5dla6mecxv5q" path="res://Scenes/simple_pong/components/pong_round/PongRound.tscn" id="2"]
-
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1")
-pong_round_scene = ExtResource("2")

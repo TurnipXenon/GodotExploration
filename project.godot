@@ -22,17 +22,17 @@ _global_script_classes=[{
 "base": "CharacterBody2D",
 "class": &"BallController",
 "language": &"GDScript",
-"path": "res://Scenes/simple_pong/components/ball/ball_controller.gd"
+"path": "res://Scripts/Scenes/simple_pong/components/ball/ball_controller.gd"
 }, {
 "base": "Resource",
 "class": &"DebugConfig",
 "language": &"GDScript",
-"path": "res://Common/Utils/debug/debug_config.gd"
+"path": "res://Scripts/Common/Utils/debug/debug_config.gd"
 }, {
 "base": "RefCounted",
 "class": &"DebugUtil",
 "language": &"GDScript",
-"path": "res://Common/Utils/debug/debug_util.gd"
+"path": "res://Scripts/Common/Utils/debug/debug_util.gd"
 }, {
 "base": "Node",
 "class": &"Dummy",
@@ -47,52 +47,52 @@ _global_script_classes=[{
 "base": "RefCounted",
 "class": &"InputUtil",
 "language": &"GDScript",
-"path": "res://Common/Utils/input_util.gd"
+"path": "res://Scripts/Common/Utils/input_util.gd"
 }, {
 "base": "RefCounted",
 "class": &"InterfacesUtil",
 "language": &"GDScript",
-"path": "res://Common/Utils/interfaces_util.gd"
+"path": "res://Scripts/Common/Utils/interfaces_util.gd"
 }, {
 "base": "CharacterBody2D",
 "class": &"PaddleController",
 "language": &"GDScript",
-"path": "res://Scenes/simple_pong/components/paddle/paddle_controller.gd"
+"path": "res://Scripts/Scenes/simple_pong/components/paddle/paddle_controller.gd"
 }, {
 "base": "Node",
 "class": &"PongMenu",
 "language": &"GDScript",
-"path": "res://Scenes/simple_pong/menu/pong_menu.gd"
+"path": "res://Scripts/Scenes/simple_pong/menu/pong_menu.gd"
 }, {
 "base": "RefCounted",
 "class": &"PongPlayer",
 "language": &"GDScript",
-"path": "res://Scenes/simple_pong/components/pong_player.gd"
+"path": "res://Scripts/Scenes/simple_pong/components/pong_player.gd"
 }, {
 "base": "Resource",
 "class": &"PongPlayerObject",
 "language": &"GDScript",
-"path": "res://Scenes/simple_pong/components/pong_round/pong_player_object.gd"
+"path": "res://Scripts/Scenes/simple_pong/components/pong_round/pong_player_object.gd"
 }, {
 "base": "Node",
 "class": &"PongRound",
 "language": &"GDScript",
-"path": "res://Scenes/simple_pong/components/pong_round/pong_round.gd"
+"path": "res://Scripts/Scenes/simple_pong/components/pong_round/pong_round.gd"
 }, {
 "base": "Node",
 "class": &"PongWall",
 "language": &"GDScript",
-"path": "res://Scenes/simple_pong/components/wall/pong_wall.gd"
+"path": "res://Scripts/Scenes/simple_pong/components/wall/pong_wall.gd"
 }, {
 "base": "Node",
 "class": &"SimplePong",
 "language": &"GDScript",
-"path": "res://Scenes/simple_pong/simple_pong.gd"
+"path": "res://Scripts/Scenes/simple_pong/simple_pong.gd"
 }, {
 "base": "RefCounted",
 "class": &"SimplePongMeta",
 "language": &"GDScript",
-"path": "res://Scenes/simple_pong/simple_pong_meta.gd"
+"path": "res://Scripts/Scenes/simple_pong/simple_pong_meta.gd"
 }, {
 "base": "RefCounted",
 "class": &"Some",
@@ -129,14 +129,14 @@ _global_script_class_icons={
 [application]
 
 config/name="GodotExploration"
-run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
+run/main_scene="res://Scripts/Scenes/MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.0", "C#")
 config/icon="res://icon.png"
 
 [autoload]
 
-GameConstants="*res://Common/Utils/game_constants.gd"
-SceneUtil="*res://Common/Utils/scene_util.gd"
+GameConstants="*res://Scripts/Common/Utils/game_constants.gd"
+SceneUtil="*res://Scripts/Common/Utils/scene_util.gd"
 
 [display]
 
