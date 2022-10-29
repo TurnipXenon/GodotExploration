@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dyxq7xpfmxros"]
+
+[node name="BreakoutGame" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 219.0
+offset_top = 169.0
+offset_right = 259.0
+offset_bottom = 192.0
+text = "Hello"

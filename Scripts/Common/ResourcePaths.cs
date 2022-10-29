@@ -3,6 +3,28 @@
 public static class ResourcePaths
 {
 	private const string BasePath = "res://Scripts/Scenes";
+
+	public static class Breakout
+	{
+		private const string BreakoutBasePath = $"{BasePath}/Breakout";
+		public static class BreakoutGame
+		{
+			private const string BreakoutGameBasePath = $"{BreakoutBasePath}/BreakoutGame";
+			public const string BreakoutGameScene = $"{BreakoutGameBasePath}/BreakoutGame.tscn";
+		}
+		public static class BreakoutMenu
+		{
+			private const string BreakoutMenuBasePath = $"{BreakoutBasePath}/BreakoutMenu";
+			public const string BreakoutMenuScene = $"{BreakoutMenuBasePath}/BreakoutMenu.tscn";
+		}
+	}
+
+	public static class MainMenu
+	{
+		private const string MainMenuBasePath = $"{BasePath}/MainMenu";
+		public const string MainMenuScene = $"{MainMenuBasePath}/MainMenu.tscn";
+	}
+	
 	public static class SimplePong
 	{
 		private const string SimplePongBasePath = $"{BasePath}/simple_pong";
