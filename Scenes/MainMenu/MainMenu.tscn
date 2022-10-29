@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cq1xhnbbooxts"]
 
-[ext_resource type="Script" path="res://Scenes/MainMenu/main_menu.gd" id="1"]
+[ext_resource type="Script" path="res://Scenes/MainMenu/MainMenu.cs" id="1_8y8hy"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1")
+script = ExtResource("1_8y8hy")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 offset_right = 640.0
@@ -37,4 +37,4 @@ offset_right = 166.0
 offset_bottom = 96.0
 text = "testing"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/PongButton" to="." method="_on_PongButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PongButton" to="." method="OnButtonClicked"]

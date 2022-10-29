@@ -27,12 +27,12 @@ _global_script_classes=[{
 "base": "Resource",
 "class": &"DebugConfig",
 "language": &"GDScript",
-"path": "res://common/utils/debug/debug_config.gd"
+"path": "res://Common/Utils/debug/debug_config.gd"
 }, {
 "base": "RefCounted",
 "class": &"DebugUtil",
 "language": &"GDScript",
-"path": "res://common/utils/debug/debug_util.gd"
+"path": "res://Common/Utils/debug/debug_util.gd"
 }, {
 "base": "Node",
 "class": &"Dummy",
@@ -47,12 +47,12 @@ _global_script_classes=[{
 "base": "RefCounted",
 "class": &"InputUtil",
 "language": &"GDScript",
-"path": "res://common/utils/input_util.gd"
+"path": "res://Common/Utils/input_util.gd"
 }, {
 "base": "RefCounted",
 "class": &"InterfacesUtil",
 "language": &"GDScript",
-"path": "res://common/utils/interfaces_util.gd"
+"path": "res://Common/Utils/interfaces_util.gd"
 }, {
 "base": "CharacterBody2D",
 "class": &"PaddleController",
@@ -135,8 +135,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GameConstants="*res://common/utils/game_constants.gd"
-SceneUtil="*res://common/utils/scene_util.gd"
+GameConstants="*res://Common/Utils/game_constants.gd"
+SceneUtil="*res://Common/Utils/scene_util.gd"
 
 [display]
 
