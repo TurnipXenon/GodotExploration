@@ -22,7 +22,7 @@ _global_script_classes=[{
 "base": "CharacterBody2D",
 "class": &"BallController",
 "language": &"GDScript",
-"path": "res://scenes/simple_pong/components/ball/ball_controller.gd"
+"path": "res://Scenes/simple_pong/components/ball/ball_controller.gd"
 }, {
 "base": "Resource",
 "class": &"DebugConfig",
@@ -57,42 +57,42 @@ _global_script_classes=[{
 "base": "CharacterBody2D",
 "class": &"PaddleController",
 "language": &"GDScript",
-"path": "res://scenes/simple_pong/components/paddle/paddle_controller.gd"
+"path": "res://Scenes/simple_pong/components/paddle/paddle_controller.gd"
 }, {
 "base": "Node",
 "class": &"PongMenu",
 "language": &"GDScript",
-"path": "res://scenes/simple_pong/menu/pong_menu.gd"
+"path": "res://Scenes/simple_pong/menu/pong_menu.gd"
 }, {
 "base": "RefCounted",
 "class": &"PongPlayer",
 "language": &"GDScript",
-"path": "res://scenes/simple_pong/components/pong_player.gd"
+"path": "res://Scenes/simple_pong/components/pong_player.gd"
 }, {
 "base": "Resource",
 "class": &"PongPlayerObject",
 "language": &"GDScript",
-"path": "res://scenes/simple_pong/components/pong_round/pong_player_object.gd"
+"path": "res://Scenes/simple_pong/components/pong_round/pong_player_object.gd"
 }, {
 "base": "Node",
 "class": &"PongRound",
 "language": &"GDScript",
-"path": "res://scenes/simple_pong/components/pong_round/pong_round.gd"
+"path": "res://Scenes/simple_pong/components/pong_round/pong_round.gd"
 }, {
 "base": "Node",
 "class": &"PongWall",
 "language": &"GDScript",
-"path": "res://scenes/simple_pong/components/wall/pong_wall.gd"
+"path": "res://Scenes/simple_pong/components/wall/pong_wall.gd"
 }, {
 "base": "Node",
 "class": &"SimplePong",
 "language": &"GDScript",
-"path": "res://scenes/simple_pong/simple_pong.gd"
+"path": "res://Scenes/simple_pong/simple_pong.gd"
 }, {
 "base": "RefCounted",
 "class": &"SimplePongMeta",
 "language": &"GDScript",
-"path": "res://scenes/simple_pong/simple_pong_meta.gd"
+"path": "res://Scenes/simple_pong/simple_pong_meta.gd"
 }, {
 "base": "RefCounted",
 "class": &"Some",
@@ -129,7 +129,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GodotExploration"
-run/main_scene="res://scenes/main_menu/MainMenu.tscn"
+run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.0", "C#")
 config/icon="res://icon.png"
 
@@ -140,14 +140,14 @@ SceneUtil="*res://common/utils/scene_util.gd"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=360
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/scale=2.0
-window/size/width=320
-window/size/height=180
-window/size/test_width=320
-window/size/test_height=180
+window/size/width=1280
+window/size/height=720
+window/size/test_width=1280
+window/size/test_height=720
 
 [dotnet]
 

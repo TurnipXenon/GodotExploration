@@ -2,15 +2,15 @@ class_name PongMenu
 extends Node
 
 var PaddleKeyboardInputCSharp = preload(
-	"res://scenes/simple_pong/components/paddle/behavior/PaddleKeyboardInput.cs"
+	"res://Scenes/simple_pong/components/paddle/behavior/PaddleKeyboardInput.cs"
 )
 var PaddleSimpleAICSharp = preload(
-	"res://scenes/simple_pong/components/paddle/behavior/PaddleSimpleAI.cs"
+	"res://Scenes/simple_pong/components/paddle/behavior/PaddleSimpleAI.cs"
 )
 
 
 static func get_scene_path() -> String:
-	return "res://scenes/simple_pong/menu/PongMenu.tscn"
+	return "res://Scenes/simple_pong/menu/PongMenu.tscn"
 
 
 func _on_SinglePlayerButton_pressed():

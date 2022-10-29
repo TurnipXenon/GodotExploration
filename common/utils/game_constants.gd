@@ -29,7 +29,7 @@ enum ControlScheme {
 # region Pong
 enum PongMode { MULTIPLAYER, SINGLEPLAYER }
 
-const PONG_MENU_SCENE_PATH = "res://scenes/simple_pong/menu/PongMenu.tscn"
+const PONG_MENU_SCENE_PATH = "res://Scenes/simple_pong/menu/PongMenu.tscn"
 # endregion Pong
 
 # gdlint: enable=class-definitions-order

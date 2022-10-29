@@ -6,7 +6,7 @@ var max_score = 3
 
 
 static func get_resource() -> Resource:
-	return load("res://scenes/simple_pong/simple_pong_meta.gd")
+	return load("res://Scenes/simple_pong/simple_pong_meta.gd")
 
 
 func is_done() -> bool:

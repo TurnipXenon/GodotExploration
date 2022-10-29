@@ -8,7 +8,7 @@ var pong_round: PongRound
 
 
 static func get_scene_path() -> String:
-	return "res://scenes/simple_pong/SimplePong.tscn"
+	return "res://Scenes/simple_pong/SimplePong.tscn"
 
 
 func _ready() -> void:
