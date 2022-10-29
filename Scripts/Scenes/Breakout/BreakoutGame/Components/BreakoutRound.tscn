@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsnb4bxwvrboa"]
+
+[ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/BreakoutRound.cs" id="1_ftu6i"]
+[ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Augmentions.cs" id="2_2tdfl"]
+[ext_resource type="PackedScene" uid="uid://b2twnti5c76up" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/PaddlePawn.tscn" id="3_u6me0"]
+[ext_resource type="PackedScene" path="res://Scripts/Scenes/simple_pong/components/wall/Wall.tscn" id="3_yh48c"]
+[ext_resource type="PackedScene" uid="uid://c7am6m8smsuee" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Ball.tscn" id="3_yw3hf"]
+[ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Ball.cs" id="5_f2od1"]
+
+[node name="BreakoutRound" type="Node2D"]
+script = ExtResource("1_ftu6i")
+
+[node name="Augmentations" type="Node" parent="."]
+script = ExtResource("2_2tdfl")
+
+[node name="Score" type="Label" parent="."]
+visible = false
+offset_left = 143.0
+offset_top = 14.0
+offset_right = 183.0
+offset_bottom = 28.0
+text = "1 - 1"
+
+[node name="WallNorth" parent="." instance=ExtResource("3_yh48c")]
+position = Vector2(210, -10)
+scale = Vector2(21, 1)
+script = null
+
+[node name="WallWest" parent="." instance=ExtResource("3_yh48c")]
+position = Vector2(-10, 180)
+scale = Vector2(1, 18)
+script = null
+
+[node name="WallEast" parent="." instance=ExtResource("3_yh48c")]
+position = Vector2(530, 180)
+scale = Vector2(11, 18)
+script = null
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Paddle" parent="." instance=ExtResource("3_u6me0")]
+position = Vector2(213, 333)
+
+[node name="Ball" parent="." instance=ExtResource("3_yw3hf")]
+position = Vector2(213, 322)
+script = ExtResource("5_f2od1")
