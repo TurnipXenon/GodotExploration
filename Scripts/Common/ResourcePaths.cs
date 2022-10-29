@@ -7,6 +7,11 @@ public static class ResourcePaths
 	public static class Breakout
 	{
 		private const string BreakoutBasePath = $"{BasePath}/Breakout";
+		public static class BreakoutGame
+		{
+			private const string BreakoutGameBasePath = $"{BreakoutBasePath}/BreakoutGame";
+			public const string BreakoutGameScene = $"{BreakoutGameBasePath}/BreakoutGame.tscn";
+		}
 		public static class BreakoutMenu
 		{
 			private const string BreakoutMenuBasePath = $"{BreakoutBasePath}/BreakoutMenu";

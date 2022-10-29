@@ -10,4 +10,9 @@ public partial class BreakoutMenu: Node
 	{
 		SceneUtil.GetSingleton(this).GoToScene(ResourcePaths.MainMenu.MainMenuScene, null);
 	}
+	
+	private void StartBreakoutButtonPressed()
+	{
+		SceneUtil.GetSingleton(this).GoToScene(ResourcePaths.Breakout.BreakoutGame.BreakoutGameScene, null);
+	}
 }
