@@ -4,6 +4,31 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="scenes\simple_pong" />
+    <Content Include="Scripts\Common\sprites\blank_pixel.png" />
+    <Content Include="Scripts\Common\sprites\blank_pixel.png.import" />
+    <Content Include="Scripts\Common\Utils\debug\configs\default_debug_config.tres" />
+    <Content Include="Scripts\Common\Utils\debug\debug_config.gd" />
+    <Content Include="Scripts\Common\Utils\debug\debug_util.gd" />
+    <Content Include="Scripts\Common\Utils\game_constants.gd" />
+    <Content Include="Scripts\Common\Utils\input_util.gd" />
+    <Content Include="Scripts\Common\Utils\interfaces_util.gd" />
+    <Content Include="Scripts\Common\Utils\scene_util.gd" />
+    <Content Include="Scripts\Scenes\MainMenu\MainMenu.tscn" />
+    <Content Include="Scripts\Scenes\simple_pong\components\ball\Ball.tscn" />
+    <Content Include="Scripts\Scenes\simple_pong\components\ball\ball_controller.gd" />
+    <Content Include="Scripts\Scenes\simple_pong\components\paddle\Paddle.tscn" />
+    <Content Include="Scripts\Scenes\simple_pong\components\paddle\paddle_controller.gd" />
+    <Content Include="Scripts\Scenes\simple_pong\components\pong_player.gd" />
+    <Content Include="Scripts\Scenes\simple_pong\components\pong_round\PongRound.tscn" />
+    <Content Include="Scripts\Scenes\simple_pong\components\pong_round\pong_player_object.gd" />
+    <Content Include="Scripts\Scenes\simple_pong\components\pong_round\pong_round.gd" />
+    <Content Include="Scripts\Scenes\simple_pong\components\score_label.gd" />
+    <Content Include="Scripts\Scenes\simple_pong\components\wall\pong_wall.gd" />
+    <Content Include="Scripts\Scenes\simple_pong\components\wall\Wall.tscn" />
+    <Content Include="Scripts\Scenes\simple_pong\menu\PongMenu.tscn" />
+    <Content Include="Scripts\Scenes\simple_pong\menu\pong_menu.gd" />
+    <Content Include="Scripts\Scenes\simple_pong\SimplePong.tscn" />
+    <Content Include="Scripts\Scenes\simple_pong\simple_pong.gd" />
+    <Content Include="Scripts\Scenes\simple_pong\simple_pong_meta.gd" />
   </ItemGroup>
 </Project>
