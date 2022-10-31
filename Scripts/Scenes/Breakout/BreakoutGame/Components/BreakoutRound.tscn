@@ -40,6 +40,7 @@ script = null
 
 [node name="Paddle" parent="." instance=ExtResource("3_u6me0")]
 position = Vector2(213, 333)
+InputStrength = 160.0
 
 [node name="Ball" parent="." instance=ExtResource("3_yw3hf")]
 position = Vector2(213, 322)
