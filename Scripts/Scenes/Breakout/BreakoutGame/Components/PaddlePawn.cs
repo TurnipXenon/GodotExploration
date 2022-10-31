@@ -2,15 +2,21 @@ using Godot;
 
 namespace GodotExploration.Scripts.Scenes.Breakout.BreakoutGame.Components;
 
-public partial class PaddlePawn : Node
+public partial class PaddlePawn : CharacterBody2D
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
+    [Export]
+    public float InputStrength = 4.0f;
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
+    private Vector2 _currentInput;
+
+
+    public override void _Process(double delta)
+    {
+        MoveAndCollide(_currentInput * (float)delta * InputStrength);
+    }
+
+    public void SetInput(Vector2 input)
+    {
+        _currentInput = input;
+    }
 }
