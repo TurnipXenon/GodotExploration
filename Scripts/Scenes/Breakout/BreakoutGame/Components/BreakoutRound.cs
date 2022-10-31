@@ -15,8 +15,9 @@ public partial class BreakoutRound : Node
 		// todo(turnip)
 	}
 
-	public void InformDone()
+	public void InformBallWasDone()
 	{
 		// todo(turnip)
+		GD.Print("Done?");
 	}
 }
