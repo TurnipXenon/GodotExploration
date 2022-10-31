@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsnb4bxwvrboa"]
+[gd_scene load_steps=9 format=3 uid="uid://dsnb4bxwvrboa"]
 
 [ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/BreakoutRound.cs" id="1_ftu6i"]
 [ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Augmentions.cs" id="2_2tdfl"]
@@ -7,9 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://c7am6m8smsuee" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Ball.tscn" id="3_yw3hf"]
 [ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Ball.cs" id="5_f2od1"]
 [ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Player.cs" id="7_d4wuv"]
+[ext_resource type="PackedScene" uid="uid://cpla5273fbsqu" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Target.tscn" id="8_sxm4t"]
 
 [node name="BreakoutRound" type="Node2D"]
 script = ExtResource("1_ftu6i")
+TargetOriginal = ExtResource("8_sxm4t")
 
 [node name="Augmentations" type="Node" parent="."]
 script = ExtResource("2_2tdfl")
