@@ -7,11 +7,16 @@ public partial class PaddlePawn : CharacterBody2D
     [Export]
     public float InputStrength = 4.0f;
 
+    private Vector2 _currentInput;
+
 
     public override void _Process(double delta)
     {
-        var inputValue = Vector2.Zero;
-        inputValue.x = Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left");
-        MoveAndCollide(inputValue * (float)delta * InputStrength);
+        MoveAndCollide(_currentInput * (float)delta * InputStrength);
+    }
+
+    public void SetInput(Vector2 input)
+    {
+        _currentInput = input;
     }
 }
