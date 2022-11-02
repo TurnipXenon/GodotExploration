@@ -49,8 +49,10 @@ InputStrength = 160.0
 [node name="Ball" parent="." node_paths=PackedStringArray("Follow") instance=ExtResource("3_yw3hf")]
 position = Vector2(213, 322)
 script = ExtResource("5_f2od1")
-BallSpeed = 1500.0
+BallSpeed = 10000.0
 KillZoneY = 370.0
+MinimumHorizontalRadian = 0.785
+MinimumVerticalRadian = 0.785
 Follow = NodePath("../Paddle")
 
 [node name="Button" type="Button" parent="."]

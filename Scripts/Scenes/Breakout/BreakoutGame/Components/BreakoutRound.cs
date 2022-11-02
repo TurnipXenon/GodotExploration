@@ -17,12 +17,16 @@ public partial class BreakoutRound : Node
     private Node2D _initialTarget = null;
     private int _targetCount = 0;
     private int _currentLives = MaxLives;
+    private Target _target;
+    private RandomNumberGenerator _rng;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         Debug.Assert(TargetOriginal != null);
         Debug.Assert(Player != null);
+        _rng = new RandomNumberGenerator();
+        _rng.Randomize();
         Initialize();
     }
 
@@ -48,7 +52,6 @@ public partial class BreakoutRound : Node
         _initialTarget = null;
 
         // Generate colors!
-        var rng = new RandomNumberGenerator();
         for (int rows = 0; rows < 5; rows++)
         {
             for (int columns = 0; columns < 10; columns++)
@@ -56,7 +59,7 @@ public partial class BreakoutRound : Node
                 var target = (Target)TargetOriginal.Instantiate();
                 AddChild(target);
                 target.Position = startingPosition + (horizontalSpacing * columns) + (verticalSpacing * rows);
-                target.SetColor(rng);
+                target.SetColor(_rng);
                 target.Killed += TargetKilled;
                 _targetCount++;
                 this._target = target;
@@ -73,8 +76,6 @@ public partial class BreakoutRound : Node
             // todo(turnip): done
         }
     }
-
-    private Target _target;
 
     private void Test()
     {

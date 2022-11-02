@@ -10,13 +10,13 @@ public partial class Ball : CharacterBody2D
     public float BallSpeed = 1000f;
 
     [Export]
-    public Vector2 MinVelocity = Vector2.One;
-
-    [Export]
-    public Vector2 MaxVelocity = Vector2.One * 5f;
-
-    [Export]
     public float KillZoneY = 360f;
+
+    [Export]
+    public float MinimumHorizontalRadian = Mathf.Pi / 7f;
+
+    [Export]
+    public float MinimumVerticalRadian = Mathf.Pi / 7f;
 
     [Export]
     public Node2D Follow;
@@ -25,7 +25,7 @@ public partial class Ball : CharacterBody2D
     public delegate void BallWasDoneEventHandler();
 
     private bool _shouldStop = true;
-    private Vector2 _currentVelocity;
+    private Vector2 _currentDirection;
     private RandomNumberGenerator _rng = new();
     private Vector2 _startingPosition;
     private bool _isDone = false;
@@ -34,6 +34,7 @@ public partial class Ball : CharacterBody2D
     {
         Debug.Assert(Follow != null);
         _startingPosition = Position;
+        _rng.Randomize();
     }
 
     public override void _Process(double delta)
@@ -42,7 +43,7 @@ public partial class Ball : CharacterBody2D
         {
             return;
         }
-        
+
         if (_shouldStop)
         {
             Position = new Vector2(Follow.Position.x, Position.y);
@@ -58,7 +59,7 @@ public partial class Ball : CharacterBody2D
         }
 
         // move
-        Velocity = _currentVelocity * (float)delta * BallSpeed;
+        Velocity = _currentDirection * (float)delta * BallSpeed;
 
         MoveAndSlide();
         if (GetSlideCollisionCount() > 0)
@@ -66,7 +67,7 @@ public partial class Ball : CharacterBody2D
             KinematicCollision2D collision2D = GetSlideCollision(0);
             if (collision2D != null)
             {
-                _currentVelocity = _currentVelocity.Bounce(collision2D.GetNormal());
+                _currentDirection = _currentDirection.Bounce(collision2D.GetNormal());
                 var collider = collision2D.GetCollider();
                 if (collider.HasMethod("Hit"))
                 {
@@ -79,15 +80,20 @@ public partial class Ball : CharacterBody2D
     public void StartBall()
     {
         _shouldStop = false;
-        _currentVelocity = RandomizeVelocity();
+        _currentDirection = RandomizeInitialDirection();
     }
 
-    private Vector2 RandomizeVelocity()
+    private Vector2 RandomizeInitialDirection()
     {
-        return new Vector2(
-            _rng.RandfRange(MinVelocity.x, MaxVelocity.x),
-            _rng.RandfRange(MinVelocity.y, MaxVelocity.y)
-        );
+        var baseRadian = MinimumHorizontalRadian;
+        if (_rng.Randf() > 0.5f)
+        {
+            baseRadian = Mathf.Pi + MinimumVerticalRadian;
+        }
+
+        var radian = _rng.RandfRange(baseRadian, Mathf.Pi - (MinimumHorizontalRadian + MinimumVerticalRadian));
+        
+        return Vector2.Right.Rotated(radian);
     }
 
     private void Split()
