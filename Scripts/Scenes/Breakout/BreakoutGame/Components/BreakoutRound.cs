@@ -10,6 +10,7 @@ public partial class BreakoutRound : Node
     public PackedScene TargetOriginal;
 
     private Node2D _initialTarget = null;
+    private int _targetCount = 0;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -36,7 +37,7 @@ public partial class BreakoutRound : Node
         var startingPosition = spacing / 2;
         var verticalSpacing = new Vector2(0, spacing.y);
         var horizontalSpacing = new Vector2(spacing.x, 0);
-        _initialTarget.Free();
+        _initialTarget.QueueFree();
         _initialTarget = null;
 
         // Generate colors!
@@ -45,15 +46,32 @@ public partial class BreakoutRound : Node
         {
             for (int columns = 0; columns < 10; columns++)
             {
-                var target = (Node2D)TargetOriginal.Instantiate();
+                var target = (Target)TargetOriginal.Instantiate();
                 AddChild(target);
                 target.Position = startingPosition + (horizontalSpacing * columns) + (verticalSpacing * rows);
-                
-                // todo(turnip): maybe we could put this logic inside the target object, also considering their lives
-                var sprite = target.GetNode<Sprite2D>("Sprite2D");
-                sprite.Modulate = new Color(rng.Randf(), rng.Randf(),rng.Randf());
+                target.SetColor(rng);
+                target.Killed += TargetKilled;
+                _targetCount++;
+                this._target = target;
             }
         }
+    }
+
+    private void TargetKilled()
+    {
+        GD.Print("Hi!");
+        _targetCount--;
+        if (_targetCount <= 0)
+        {
+            // todo(turnip): done
+        }
+    }
+
+    private Target _target;
+
+    private void Test()
+    {
+        _target.Hit();
     }
 
     private void InformBallWasDone()

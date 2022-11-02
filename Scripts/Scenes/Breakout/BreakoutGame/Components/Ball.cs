@@ -56,9 +56,11 @@ public partial class Ball : CharacterBody2D
             if (collision2D != null)
             {
                 _currentVelocity = _currentVelocity.Bounce(collision2D.GetNormal());
-                // var collider = collision2D.GetCollider();
-                // todo(turnip): make things react when you hit them
-                // collider.HasMethod("Hit")?
+                var collider = collision2D.GetCollider();
+                if (collider.HasMethod("Hit"))
+                {
+                    collider.Call("Hit");
+                }
             }
         }
     }

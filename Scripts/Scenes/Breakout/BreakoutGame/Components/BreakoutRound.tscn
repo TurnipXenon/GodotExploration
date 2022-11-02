@@ -65,4 +65,4 @@ Ball = NodePath("../Ball")
 Paddle = NodePath("../Paddle")
 
 [connection signal="BallWasDone" from="Ball" to="." method="InformBallWasDone"]
-[connection signal="pressed" from="Button" to="Ball" method="StartBall"]
+[connection signal="pressed" from="Button" to="." method="Test"]
