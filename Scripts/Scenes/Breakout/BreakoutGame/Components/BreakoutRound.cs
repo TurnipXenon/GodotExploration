@@ -9,13 +9,20 @@ public partial class BreakoutRound : Node
     [Export]
     public PackedScene TargetOriginal;
 
+    [Export]
+    public Player Player;
+    
+    private const int MaxLives = 3;
+    
     private Node2D _initialTarget = null;
     private int _targetCount = 0;
+    private int _currentLives = MaxLives;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         Debug.Assert(TargetOriginal != null);
+        Debug.Assert(Player != null);
         Initialize();
     }
 
@@ -59,7 +66,7 @@ public partial class BreakoutRound : Node
 
     private void TargetKilled()
     {
-        GD.Print("Hi!");
+        GD.Print("Target killed! TODO");
         _targetCount--;
         if (_targetCount <= 0)
         {
@@ -76,7 +83,14 @@ public partial class BreakoutRound : Node
 
     private void InformBallWasDone()
     {
-        // todo(turnip)
+        _currentLives--;
         GD.Print("Done?");
+        if (_currentLives <= 0)
+        {
+            GD.Print("TODO: Game ending! Inform someone about results");
+            return;
+        }
+        
+        Player.Reinitialize(this);
     }
 }

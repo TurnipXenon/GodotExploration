@@ -4,10 +4,8 @@ namespace GodotExploration.Scripts.Scenes.Breakout.BreakoutGame.Components;
 
 public partial class Target : StaticBody2D
 {
-    // todo(turnip): generate color depending on lives
-    // todo(turnip): lives
-    private const int maxLives = 3;
-    private int currentLives = maxLives;
+    private const int MaxLives = 3;
+    private int _currentLives = MaxLives;
     private Color _additionalColor;
     private Sprite2D _sprite2D;
     
@@ -21,9 +19,9 @@ public partial class Target : StaticBody2D
         UpdateColor();
     }
 
-    public void UpdateColor()
+    private void UpdateColor()
     {
-        var baseColorValue = (currentLives / (float)(maxLives + 1)) * .5f;
+        var baseColorValue = (_currentLives / (float)(MaxLives + 1)) * .5f;
         var r = 2f +  _additionalColor.r*.7f;
         var g = baseColorValue + (1 - baseColorValue) * _additionalColor.g;
         var b = baseColorValue + (1 - baseColorValue) * _additionalColor.b;
@@ -39,11 +37,11 @@ public partial class Target : StaticBody2D
 
     public void Hit()
     {
-        currentLives--;
-        if (currentLives <= 0)
+        _currentLives--;
+        if (_currentLives <= 0)
         {
             QueueFree();
-            EmitSignal("Killed");
+            EmitSignal(SignalName.Killed);
             return;
         }
         
