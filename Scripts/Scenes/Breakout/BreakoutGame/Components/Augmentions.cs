@@ -13,4 +13,11 @@ public partial class Augmentions : Node
 	public override void _Process(double delta)
 	{
 	}
+
+	public Augmentions Reinitialize()
+	{
+		var duplicate = (Augmentions)Duplicate();
+		QueueFree();
+		return duplicate;
+	}
 }
