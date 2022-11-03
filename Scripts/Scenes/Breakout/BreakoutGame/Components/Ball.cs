@@ -67,12 +67,10 @@ public partial class Ball : CharacterBody2D
             KinematicCollision2D collision2D = GetSlideCollision(0);
             if (collision2D != null)
             {
-                _currentDirection = _currentDirection.Bounce(collision2D.GetNormal());
+                _currentDirection = _currentDirection.Bounce(collision2D.GetNormal()).Normalized();
                 var collider = collision2D.GetCollider();
-                if (collider.HasMethod("Hit"))
-                {
-                    collider.Call("Hit");
-                }
+                var ballHittable = collider as IBallHittable;
+                ballHittable?.OnBallHit(this);
             }
         }
     }
@@ -92,8 +90,8 @@ public partial class Ball : CharacterBody2D
         }
 
         var radian = _rng.RandfRange(baseRadian, Mathf.Pi - (MinimumHorizontalRadian + MinimumVerticalRadian));
-        
-        return Vector2.Right.Rotated(radian);
+
+        return Vector2.Right.Rotated(radian).Normalized();
     }
 
     private void Split()

@@ -45,6 +45,7 @@ script = null
 [node name="Paddle" parent="." instance=ExtResource("3_u6me0")]
 position = Vector2(213, 333)
 InputStrength = 160.0
+BallInfluence = 0.5
 
 [node name="Ball" parent="." node_paths=PackedStringArray("Follow") instance=ExtResource("3_yw3hf")]
 position = Vector2(213, 322)

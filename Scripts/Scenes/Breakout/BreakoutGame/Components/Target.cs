@@ -2,13 +2,13 @@
 
 namespace GodotExploration.Scripts.Scenes.Breakout.BreakoutGame.Components;
 
-public partial class Target : StaticBody2D
+public partial class Target : StaticBody2D, IBallHittable
 {
     private const int MaxLives = 3;
     private int _currentLives = MaxLives;
     private Color _additionalColor;
     private Sprite2D _sprite2D;
-    
+
     [Signal]
     public delegate void KilledEventHandler();
 
@@ -22,10 +22,10 @@ public partial class Target : StaticBody2D
     private void UpdateColor()
     {
         var baseColorValue = (_currentLives / (float)(MaxLives + 1)) * .5f;
-        var r = 2f +  _additionalColor.r*.7f;
+        var r = 2f + _additionalColor.r * .7f;
         var g = baseColorValue + (1 - baseColorValue) * _additionalColor.g;
         var b = baseColorValue + (1 - baseColorValue) * _additionalColor.b;
-        
+
         if (_sprite2D == null)
         {
             _sprite2D = GetNode<Sprite2D>("Sprite2D");
@@ -34,8 +34,7 @@ public partial class Target : StaticBody2D
         _sprite2D.Modulate = new Color(r, g, b);
     }
 
-
-    public void Hit()
+    public void OnBallHit(Ball _)
     {
         _currentLives--;
         if (_currentLives <= 0)
@@ -44,7 +43,7 @@ public partial class Target : StaticBody2D
             EmitSignal(SignalName.Killed);
             return;
         }
-        
+
         UpdateColor();
     }
 }

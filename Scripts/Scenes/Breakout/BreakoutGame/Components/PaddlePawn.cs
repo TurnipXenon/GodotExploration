@@ -2,10 +2,13 @@ using Godot;
 
 namespace GodotExploration.Scripts.Scenes.Breakout.BreakoutGame.Components;
 
-public partial class PaddlePawn : CharacterBody2D
+public partial class PaddlePawn : CharacterBody2D, IBallHittable
 {
     [Export]
     public float InputStrength = 4.0f;
+
+    [Export]
+    public float BallInfluence = 0.25f;
 
     private Vector2 _currentPosition;
     private Vector2 _startingPosition;
@@ -32,5 +35,10 @@ public partial class PaddlePawn : CharacterBody2D
         duplicate.Position = _startingPosition;
         QueueFree();
         return duplicate;
+    }
+
+    public void OnBallHit(Ball ball)
+    {
+        ball.InfluenceDirection(_currentPosition.x * BallInfluence);
     }
 }

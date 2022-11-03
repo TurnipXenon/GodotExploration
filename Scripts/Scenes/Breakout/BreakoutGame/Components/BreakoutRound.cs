@@ -79,7 +79,7 @@ public partial class BreakoutRound : Node
 
     private void Test()
     {
-        _target.Hit();
+        _target.OnBallHit(null);
     }
 
     private void InformBallWasDone()
