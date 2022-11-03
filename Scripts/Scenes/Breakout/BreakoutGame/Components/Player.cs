@@ -25,7 +25,7 @@ public partial class Player : Node
 	{
 		if (Input.IsActionJustPressed("enter"))
 		{
-			Ball.StartBall();
+			Ball.StartBall(Paddle.GetRunningTime(), Paddle.IsGoingRight());
 		}
 		
 		var inputValue = Vector2.Zero;

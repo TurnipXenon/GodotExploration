@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics;
 using Godot;
 
@@ -75,23 +74,20 @@ public partial class Ball : CharacterBody2D
         }
     }
 
-    public void StartBall()
+    public void StartBall(float runningTime, bool isGoingRight)
     {
         _shouldStop = false;
-        _currentDirection = RandomizeInitialDirection();
+        _currentDirection = RandomizeInitialDirection(runningTime, isGoingRight);
     }
 
-    private Vector2 RandomizeInitialDirection()
+    private Vector2 RandomizeInitialDirection(float runningTime, bool isGoingRight)
     {
-        var baseRadian = MinimumHorizontalRadian;
-        if (_rng.Randf() > 0.5f)
-        {
-            baseRadian = Mathf.Pi + MinimumVerticalRadian;
-        }
-
-        var radian = _rng.RandfRange(baseRadian, Mathf.Pi - (MinimumHorizontalRadian + MinimumVerticalRadian));
-
-        return Vector2.Right.Rotated(radian).Normalized();
+        var rad = Mathf.Clamp(runningTime,
+            MinimumVerticalRadian,
+            (Mathf.Pi / 2f) - MinimumHorizontalRadian);
+        var newVector = Vector2.Up.Rotated(rad * (isGoingRight ? 1f : -1f));
+        var newV = SnapDirection(newVector);
+        return newV;
     }
 
     private void Split()
@@ -112,5 +108,54 @@ public partial class Ball : CharacterBody2D
         duplicate.Follow = paddlePawn;
         QueueFree();
         return duplicate;
+    }
+
+    public void InfluenceDirection(float influenceHorizontal)
+    {
+        if (influenceHorizontal == 0)
+        {
+            return;
+        }
+
+        var newDirection = _currentDirection;
+        newDirection.x = influenceHorizontal;
+        newDirection = newDirection.Normalized();
+        _currentDirection = SnapDirection(newDirection);
+    }
+
+    private Vector2 SnapDirection(Vector2 direction)
+    {
+        // Prevent division by zero
+        var processedDirection = direction;
+        if (direction.x == 0)
+        {
+            processedDirection.x = 0.1f;
+        }
+
+        if (direction.y == 0)
+        {
+            processedDirection.y = 0.1f;
+        }
+
+        // Remember which Quadrant we were using the following matrix
+        // | +/-1  0  |
+        // |  0  +/-1 |
+        var originalQuadrant = new Transform2D(
+            processedDirection.x / Mathf.Abs(processedDirection.x), 0f,
+            0f, processedDirection.y / Mathf.Abs(processedDirection.y),
+            0f, 0f);
+
+        // Force to Quadrant I
+        var q1 = processedDirection * originalQuadrant;
+
+        // Do snapping logic on Quadrant I
+        // Clamp between minimum acute angle and maximum acute angle (90deg - MinimumVerticalRadian)
+        var rad = Mathf.Clamp(q1.Angle(),
+            MinimumHorizontalRadian,
+            (Mathf.Pi / 2f) - MinimumVerticalRadian);
+        q1 = Vector2.Right.Rotated(rad);
+
+        // Convert back to original Quadrant
+        return q1 * originalQuadrant;
     }
 }
