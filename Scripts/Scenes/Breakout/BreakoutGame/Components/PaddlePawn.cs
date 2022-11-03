@@ -49,7 +49,7 @@ public partial class PaddlePawn : CharacterBody2D, IBallHittable
 
     public void OnBallHit(Ball ball)
     {
-        ball.InfluenceDirection(_currentInput.x * BallInfluence);
+        ball.InfluenceHorizontal(_currentInput.x * BallInfluence);
     }
 
     public float GetRunningTime()

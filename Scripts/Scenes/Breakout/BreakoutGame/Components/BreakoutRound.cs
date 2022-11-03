@@ -27,6 +27,7 @@ public partial class BreakoutRound : Node
         Debug.Assert(Player != null);
         _rng = new RandomNumberGenerator();
         _rng.Randomize();
+        GD.Randomize(); // idk lol
         Initialize();
     }
 

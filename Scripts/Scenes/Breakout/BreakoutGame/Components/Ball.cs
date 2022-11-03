@@ -103,14 +103,13 @@ public partial class Ball : CharacterBody2D
     public Ball Reinitialize(PaddlePawn paddlePawn)
     {
         var duplicate = (Ball)Duplicate();
-        GD.Print(_startingPosition);
         duplicate.Position = _startingPosition;
         duplicate.Follow = paddlePawn;
         QueueFree();
         return duplicate;
     }
 
-    public void InfluenceDirection(float influenceHorizontal)
+    public void InfluenceHorizontal(float influenceHorizontal)
     {
         if (influenceHorizontal == 0)
         {
@@ -121,6 +120,13 @@ public partial class Ball : CharacterBody2D
         newDirection.x = influenceHorizontal;
         newDirection = newDirection.Normalized();
         _currentDirection = SnapDirection(newDirection);
+    }
+
+    public void InfluenceHorizontalByMultiplication(float mulitiplier)
+    {
+        _currentDirection.x *= mulitiplier;
+        _currentDirection = _currentDirection.Normalized();
+        _currentDirection = SnapDirection(_currentDirection);
     }
 
     private Vector2 SnapDirection(Vector2 direction)

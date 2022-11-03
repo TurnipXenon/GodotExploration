@@ -34,7 +34,7 @@ public partial class Target : StaticBody2D, IBallHittable
         _sprite2D.Modulate = new Color(r, g, b);
     }
 
-    public void OnBallHit(Ball _)
+    public void OnBallHit(Ball ball)
     {
         _currentLives--;
         if (_currentLives <= 0)
@@ -45,5 +45,6 @@ public partial class Target : StaticBody2D, IBallHittable
         }
 
         UpdateColor();
+        ball.InfluenceHorizontalByMultiplication((float)GD.RandRange(.5f, 1.5f));
     }
 }
