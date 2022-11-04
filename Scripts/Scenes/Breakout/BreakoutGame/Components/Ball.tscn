@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7am6m8smsuee"]
+[gd_scene load_steps=5 format=3 uid="uid://c7am6m8smsuee"]
 
 [ext_resource type="Texture2D" uid="uid://dkt2os5srh5lq" path="res://Scripts/Common/sprites/blank_pixel.png" id="1"]
+[ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Ball.cs" id="1_7wifl"]
 
 [sub_resource type="ShaderMaterial" id="4"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 
 [node name="Ball" type="CharacterBody2D"]
+script = ExtResource("1_7wifl")
+BallSpeed = 750.0
+KillZoneY = 370.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("4")

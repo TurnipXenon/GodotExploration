@@ -1,16 +1,30 @@
-﻿using Godot;
+﻿using System.Diagnostics;
+using Godot;
+using GodotExploration.Scripts.Scenes.Breakout.BreakoutGame.Components.Augmentation;
 
 namespace GodotExploration.Scripts.Scenes.Breakout.BreakoutGame.Components;
 
 public partial class Target : StaticBody2D, IBallHittable
 {
+    [Export(PropertyHint.Range, "0,1")]
+    public float AugmentationChance = 1 / 3f;
+
+    [Export]
+    public PackedScene AugmentationPrefab;
+
+    [Signal]
+    public delegate void KilledEventHandler();
+
     private const int MaxLives = 3;
     private int _currentLives = MaxLives;
     private Color _additionalColor;
     private Sprite2D _sprite2D;
+    private AugmentationManager.ICallback _callback;
 
-    [Signal]
-    public delegate void KilledEventHandler();
+    public override void _Ready()
+    {
+        Debug.Assert(AugmentationPrefab != null);
+    }
 
     public void SetColor(RandomNumberGenerator rng)
     {
@@ -39,12 +53,26 @@ public partial class Target : StaticBody2D, IBallHittable
         _currentLives--;
         if (_currentLives <= 0)
         {
+            // todo(turnip): convert to AugmentationChance
+            if (GD.Randf() < 1f)
+            {
+                var augmentation = (AugmentationShell)AugmentationPrefab.Instantiate();
+                augmentation.Position = Position;
+                augmentation.SetAugmentationManager(_callback);
+                GetTree().Root.AddChild(augmentation);
+            }
+            
             QueueFree();
             EmitSignal(SignalName.Killed);
             return;
         }
 
         UpdateColor();
-        ball.InfluenceHorizontalByMultiplication((float)GD.RandRange(.5f, 1.5f));
+        ball?.InfluenceHorizontalByMultiplication((float)GD.RandRange(.5f, 1.5f));
+    }
+
+    public void SetAugmentationManager(AugmentationManager.ICallback callback)
+    {
+        _callback = callback;
     }
 }

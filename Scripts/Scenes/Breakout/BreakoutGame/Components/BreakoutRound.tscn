@@ -1,29 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsnb4bxwvrboa"]
+[gd_scene load_steps=8 format=3 uid="uid://boumnkrlyc0i0"]
 
 [ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/BreakoutRound.cs" id="1_ftu6i"]
-[ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Augmentions.cs" id="2_2tdfl"]
+[ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Augmentation/AugmentationManager.cs" id="3_0hxsw"]
 [ext_resource type="PackedScene" uid="uid://b2twnti5c76up" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/PaddlePawn.tscn" id="3_u6me0"]
 [ext_resource type="PackedScene" path="res://Scripts/Scenes/simple_pong/components/wall/Wall.tscn" id="3_yh48c"]
 [ext_resource type="PackedScene" uid="uid://c7am6m8smsuee" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Ball.tscn" id="3_yw3hf"]
-[ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Ball.cs" id="5_f2od1"]
 [ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Player.cs" id="7_d4wuv"]
-[ext_resource type="PackedScene" uid="uid://cpla5273fbsqu" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Target.tscn" id="8_sxm4t"]
+[ext_resource type="PackedScene" uid="uid://dfeb1ikup2lbp" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Target.tscn" id="8_sxm4t"]
 
-[node name="BreakoutRound" type="Node2D" node_paths=PackedStringArray("Player")]
+[node name="BreakoutRound" type="Node2D" node_paths=PackedStringArray("Player", "AugmentationManager")]
 script = ExtResource("1_ftu6i")
 TargetOriginal = ExtResource("8_sxm4t")
 Player = NodePath("Player")
+AugmentationManager = NodePath("AugmentationManager")
 
-[node name="Augmentations" type="Node" parent="."]
-script = ExtResource("2_2tdfl")
-
-[node name="Score" type="Label" parent="."]
-visible = false
-offset_left = 143.0
-offset_top = 14.0
-offset_right = 183.0
-offset_bottom = 28.0
-text = "1 - 1"
+[node name="AugmentationManager" type="Node" parent="."]
+script = ExtResource("3_0hxsw")
 
 [node name="WallNorth" parent="." instance=ExtResource("3_yh48c")]
 position = Vector2(210, -10)
@@ -49,9 +41,7 @@ BallInfluence = 0.5
 
 [node name="Ball" parent="." node_paths=PackedStringArray("Follow") instance=ExtResource("3_yw3hf")]
 position = Vector2(213, 322)
-script = ExtResource("5_f2od1")
-BallSpeed = 10000.0
-KillZoneY = 370.0
+BallSpeed = 7500.0
 MinimumHorizontalRadian = 0.785
 MinimumVerticalRadian = 0.785
 Follow = NodePath("../Paddle")
@@ -63,11 +53,11 @@ offset_right = 573.0
 offset_bottom = 92.0
 text = "Testing"
 
-[node name="Player" type="Node" parent="." node_paths=PackedStringArray("Ball", "Paddle", "Augmentions")]
+[node name="Player" type="Node" parent="." node_paths=PackedStringArray("Ball", "Paddle", "AugmentationManager")]
 script = ExtResource("7_d4wuv")
 Ball = NodePath("../Ball")
 Paddle = NodePath("../Paddle")
-Augmentions = NodePath("../Augmentations")
+AugmentationManager = NodePath("../AugmentationManager")
 
 [connection signal="BallWasDone" from="Ball" to="." method="InformBallWasDone"]
 [connection signal="pressed" from="Button" to="." method="Test"]

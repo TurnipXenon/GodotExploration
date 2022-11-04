@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://f0cknr2hts1w"]
+
+[ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Augmentation/AugmentationSticky.cs" id="1_wkvfo"]
+
+[node name="AugmentationSticky" type="Node"]
+script = ExtResource("1_wkvfo")

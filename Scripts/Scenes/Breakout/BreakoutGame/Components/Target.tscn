@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpla5273fbsqu"]
+[gd_scene load_steps=5 format=3 uid="uid://dfeb1ikup2lbp"]
 
 [ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Target.cs" id="1_4ot0w"]
 [ext_resource type="Texture2D" uid="uid://dkt2os5srh5lq" path="res://Scripts/Common/sprites/blank_pixel.png" id="1_ru2sl"]
+[ext_resource type="PackedScene" uid="uid://b1xm3wrgucraa" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Augmentation/AugmentationShell.tscn" id="2_gdqro"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 
 [node name="Target" type="StaticBody2D"]
 script = ExtResource("1_4ot0w")
+AugmentationPrefab = ExtResource("2_gdqro")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(42, 20)

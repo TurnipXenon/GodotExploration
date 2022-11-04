@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1xm3wrgucraa"]
+
+[ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Augmentation/AugmentationShell.cs" id="1_4k8ry"]
+[ext_resource type="Texture2D" uid="uid://dkt2os5srh5lq" path="res://Scripts/Common/sprites/blank_pixel.png" id="2_m0cy6"]
+[ext_resource type="PackedScene" uid="uid://f0cknr2hts1w" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Augmentation/AugmentationSticky.tscn" id="2_otmda"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+
+[node name="Augmentation" type="Area2D"]
+script = ExtResource("1_4k8ry")
+Augmentations = [ExtResource("2_otmda"), ExtResource("2_otmda"), ExtResource("2_otmda")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(30, 7.5)
+texture = ExtResource("2_m0cy6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 0.375)
+shape = SubResource("1")
