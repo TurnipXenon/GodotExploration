@@ -23,11 +23,18 @@ public partial class Ball : CharacterBody2D
     [Signal]
     public delegate void BallWasDoneEventHandler();
 
+    [Signal]
+    public delegate void BallHitPaddleEventHandler(Ball ball);
+
+    [Signal]
+    public delegate void BallStartedEventHandler();
+
     private bool _shouldStop = true;
     private Vector2 _currentDirection;
     private RandomNumberGenerator _rng = new();
     private Vector2 _startingPosition;
     private bool _isDone = false;
+    private float _freezeXOffset;
 
     public override void _Ready()
     {
@@ -36,7 +43,7 @@ public partial class Ball : CharacterBody2D
         _rng.Randomize();
     }
 
-    public override void _Process(double delta)
+    public override void _PhysicsProcess(double delta)
     {
         if (_isDone)
         {
@@ -45,7 +52,7 @@ public partial class Ball : CharacterBody2D
 
         if (_shouldStop)
         {
-            Position = new Vector2(Follow.Position.x, Position.y);
+            Position = new Vector2(Follow.Position.x + _freezeXOffset, Position.y);
             return;
         }
 
@@ -70,6 +77,12 @@ public partial class Ball : CharacterBody2D
                 var collider = collision2D.GetCollider();
                 var ballHittable = collider as IBallHittable;
                 ballHittable?.OnBallHit(this);
+                
+                if (collider is PaddlePawn)
+                {
+                    GD.Print("Hit paddle!");
+                    EmitSignal(SignalName.BallHitPaddle, this);
+                }
             }
         }
     }
@@ -77,6 +90,7 @@ public partial class Ball : CharacterBody2D
     public void StartBall(float runningTime, bool isGoingRight)
     {
         _shouldStop = false;
+        EmitSignal(SignalName.BallStarted);
         _currentDirection = RandomizeInitialDirection(runningTime, isGoingRight);
     }
 
@@ -97,7 +111,9 @@ public partial class Ball : CharacterBody2D
 
     public void Stop()
     {
-        // todo(turnip)
+        // stop at the x-axis
+        _freezeXOffset = Position.x - Follow.Position.x;
+        _shouldStop = true;
     }
 
     public Ball Reinitialize(PaddlePawn paddlePawn)

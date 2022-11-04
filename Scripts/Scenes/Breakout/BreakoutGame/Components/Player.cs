@@ -3,8 +3,14 @@ using Godot;
 
 namespace GodotExploration.Scripts.Scenes.Breakout.BreakoutGame.Components;
 
-public partial class Player : Node
+public partial class Player : Node, Player.ICallback
 {
+	public interface ICallback
+	{
+		public Ball GetBall();
+		public PaddlePawn GetPaddle();
+	}
+	
 	[Export]
 	public Ball Ball;
 
@@ -43,5 +49,15 @@ public partial class Player : Node
 
 		AugmentationManager = AugmentationManager.Reinitialize();
 		breakoutRound.AddChild(AugmentationManager);
+	}
+
+	public Ball GetBall()
+	{
+		return Ball;
+	}
+
+	public PaddlePawn GetPaddle()
+	{
+		return Paddle;
 	}
 }

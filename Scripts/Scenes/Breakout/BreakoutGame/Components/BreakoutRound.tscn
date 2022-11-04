@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dfeb1ikup2lbp" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Target.tscn" id="8_sxm4t"]
 
 [node name="BreakoutRound" type="Node2D" node_paths=PackedStringArray("Player", "AugmentationManager")]
+position = Vector2(0, 2)
 script = ExtResource("1_ftu6i")
 TargetOriginal = ExtResource("8_sxm4t")
 Player = NodePath("Player")

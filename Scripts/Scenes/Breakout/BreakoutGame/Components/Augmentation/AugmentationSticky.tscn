@@ -4,3 +4,4 @@
 
 [node name="AugmentationSticky" type="Node"]
 script = ExtResource("1_wkvfo")
+Duration = 10000.0
