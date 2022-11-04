@@ -12,13 +12,13 @@ public partial class Player : Node
 	public PaddlePawn Paddle;
 
 	[Export]
-	public Augmentions Augmentions;
+	public Augmentation.AugmentationManager AugmentationManager;
 
 	public override void _Ready()
 	{
 		Debug.Assert(Ball != null);
 		Debug.Assert(Paddle != null);
-		Debug.Assert(Augmentions != null);
+		Debug.Assert(AugmentationManager != null);
 	}
 
 	public override void _Process(double delta)
@@ -41,7 +41,7 @@ public partial class Player : Node
 		Ball = Ball.Reinitialize(Paddle);
 		breakoutRound.AddChild(Ball);
 
-		Augmentions = Augmentions.Reinitialize();
-		breakoutRound.AddChild(Augmentions);
+		AugmentationManager = AugmentationManager.Reinitialize();
+		breakoutRound.AddChild(AugmentationManager);
 	}
 }

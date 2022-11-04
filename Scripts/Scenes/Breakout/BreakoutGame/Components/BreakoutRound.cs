@@ -11,6 +11,9 @@ public partial class BreakoutRound : Node
 
     [Export]
     public Player Player;
+
+    [Export]
+    public Augmentation.AugmentationManager AugmentationManager;
     
     private const int MaxLives = 3;
     
@@ -25,6 +28,8 @@ public partial class BreakoutRound : Node
     {
         Debug.Assert(TargetOriginal != null);
         Debug.Assert(Player != null);
+        Debug.Assert(AugmentationManager != null);
+        
         _rng = new RandomNumberGenerator();
         _rng.Randomize();
         GD.Randomize(); // idk lol
@@ -61,6 +66,7 @@ public partial class BreakoutRound : Node
                 AddChild(target);
                 target.Position = startingPosition + (horizontalSpacing * columns) + (verticalSpacing * rows);
                 target.SetColor(_rng);
+                target.SetAugmentationManager(AugmentationManager);
                 target.Killed += TargetKilled;
                 _targetCount++;
                 this._target = target;
