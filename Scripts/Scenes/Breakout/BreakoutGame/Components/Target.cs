@@ -20,6 +20,7 @@ public partial class Target : StaticBody2D, IBallHittable
     private Color _additionalColor;
     private Sprite2D _sprite2D;
     private AugmentationManager.ICallback _callback;
+    private bool _isDone = false;
 
     public override void _Ready()
     {
@@ -53,17 +54,24 @@ public partial class Target : StaticBody2D, IBallHittable
         _currentLives--;
         if (_currentLives <= 0)
         {
+            if (_isDone)
+            {
+                return;
+            }
+
             // todo(turnip): convert to AugmentationChance
             if (GD.Randf() < 1f)
             {
                 var augmentation = (AugmentationShell)AugmentationPrefab.Instantiate();
-                augmentation.Position = Position;
                 augmentation.SetAugmentationManager(_callback);
                 GetTree().Root.AddChild(augmentation);
+                augmentation.Position = Position;
+                
+                QueueFree();
+                EmitSignal(SignalName.Killed);
             }
-            
-            QueueFree();
-            EmitSignal(SignalName.Killed);
+
+            _isDone = true;
             return;
         }
 

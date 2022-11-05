@@ -14,9 +14,9 @@ public partial class BreakoutRound : Node
 
     [Export]
     public Augmentation.AugmentationManager AugmentationManager;
-    
+
     private const int MaxLives = 3;
-    
+
     private Node2D _initialTarget = null;
     private int _targetCount = 0;
     private int _currentLives = MaxLives;
@@ -29,10 +29,13 @@ public partial class BreakoutRound : Node
         Debug.Assert(TargetOriginal != null);
         Debug.Assert(Player != null);
         Debug.Assert(AugmentationManager != null);
-        
+
+        AugmentationManager.SetPlayerCallback(Player);
+
         _rng = new RandomNumberGenerator();
         _rng.Randomize();
         GD.Randomize(); // idk lol
+
         Initialize();
     }
 
@@ -98,7 +101,7 @@ public partial class BreakoutRound : Node
             GD.Print("TODO: Game ending! Inform someone about results");
             return;
         }
-        
+
         Player.Reinitialize(this);
     }
 }
