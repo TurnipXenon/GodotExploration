@@ -21,7 +21,7 @@ public partial class Ball : CharacterBody2D
     public Node2D Follow;
 
     [Signal]
-    public delegate void BallWasDoneEventHandler();
+    public delegate void BallWasDoneEventHandler(Ball ball);
 
     [Signal]
     public delegate void BallHitPaddleEventHandler(Ball ball);
@@ -59,7 +59,7 @@ public partial class Ball : CharacterBody2D
         // judge
         if (Position.y > KillZoneY)
         {
-            EmitSignal(SignalName.BallWasDone);
+            EmitSignal(SignalName.BallWasDone, this);
             _isDone = true;
             return;
         }
@@ -80,18 +80,19 @@ public partial class Ball : CharacterBody2D
                 
                 if (collider is PaddlePawn)
                 {
-                    GD.Print("Hit paddle!");
                     EmitSignal(SignalName.BallHitPaddle, this);
                 }
             }
         }
     }
 
-    public void StartBall(float runningTime, bool isGoingRight)
+    public bool StartBall(float runningTime, bool isGoingRight)
     {
+        bool isNewlyStarted = _shouldStop;
         _shouldStop = false;
         EmitSignal(SignalName.BallStarted);
         _currentDirection = RandomizeInitialDirection(runningTime, isGoingRight);
+        return isNewlyStarted;
     }
 
     private Vector2 RandomizeInitialDirection(float runningTime, bool isGoingRight)

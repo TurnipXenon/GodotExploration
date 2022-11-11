@@ -43,7 +43,8 @@ public partial class AugmentationShell : Area2D
             return;
         }
 
-        _callback.ActivateAugmentation(Augmentations[GD.RandRange(0, Augmentations.Length - 1)]);
+        var newAugmentation = (PackedScene)Augmentations[GD.RandRange(0, Augmentations.Length - 1)].Duplicate();
+        _callback.ActivateAugmentation(newAugmentation);
         QueueFree();
     }
 
