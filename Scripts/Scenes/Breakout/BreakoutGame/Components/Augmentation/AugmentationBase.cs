@@ -22,7 +22,7 @@ public abstract partial class AugmentationBase : Node
         _endTime = Time.GetTicksMsec() + Duration;
     }
 
-    public void Destroy()
+    public virtual void Destroy()
     {
         QueueFree();
     }

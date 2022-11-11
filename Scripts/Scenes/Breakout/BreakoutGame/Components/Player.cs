@@ -41,14 +41,15 @@ public partial class Player : Node, Player.ICallback
 
 	public void Reinitialize(BreakoutRound breakoutRound)
 	{
+		// arrange by most dependent to least dependent
+		AugmentationManager = AugmentationManager.Reinitialize();
+		breakoutRound.AddChild(AugmentationManager);
+		
 		Paddle = Paddle.Reinitialize();
 		breakoutRound.AddChild(Paddle);
 		
 		Ball = Ball.Reinitialize(Paddle);
 		breakoutRound.AddChild(Ball);
-
-		AugmentationManager = AugmentationManager.Reinitialize();
-		breakoutRound.AddChild(AugmentationManager);
 	}
 
 	public Ball GetBall()

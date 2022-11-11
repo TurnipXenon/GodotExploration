@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1bgqvye6lr2d"]
+
+[ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Augmentation/AugmentationLong.cs" id="1_82n13"]
+
+[node name="AugmentationLong" type="Node"]
+script = ExtResource("1_82n13")
+Duration = 8000.0

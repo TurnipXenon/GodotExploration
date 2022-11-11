@@ -27,6 +27,11 @@ public partial class AugmentationManager : Node, AugmentationManager.ICallback
 
 	public AugmentationManager Reinitialize()
 	{
+		for (int i = _augmentationList.Count - 1; i >= 0; i--)
+		{
+			_augmentationList[i].Destroy();
+			RemoveChild(_augmentationList[i]);
+		}
 		var duplicate = (AugmentationManager)Duplicate();
 		QueueFree();
 		return duplicate;
@@ -36,6 +41,7 @@ public partial class AugmentationManager : Node, AugmentationManager.ICallback
 	{
 		var newAugmentation = (AugmentationBase)augmentationShell.Instantiate();
 		newAugmentation.Initialize(_player);
+		AddChild(newAugmentation);
 		_augmentationList.Add(newAugmentation);
 		// todo: augmentations can merge
 	}

@@ -15,7 +15,6 @@ public partial class AugmentationSticky : AugmentationBase
     {
         base.Initialize(player);
         
-        GD.Print("Initializing sticky");
         Player.GetBall().BallHitPaddle += OnPaddleHitBall;
         Player.GetBall().BallStarted += OnBallStarted;
     }
