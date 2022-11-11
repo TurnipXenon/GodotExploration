@@ -10,6 +10,13 @@ public partial class PaddlePawn : CharacterBody2D, IBallHittable
     [Export]
     public float BallInfluence = 0.25f;
 
+    [Export]
+    public float PaddleMinX = 20f;
+
+    [Export]
+    public float PaddleMaxX = 400f;
+
+    private const float widthMultiplier = 40f;
     private Vector2 _currentInput;
     private Vector2 _startingPosition;
     private double _runningTime;
@@ -20,9 +27,17 @@ public partial class PaddlePawn : CharacterBody2D, IBallHittable
     }
 
 
-    public override void _Process(double delta)
+    public override void _PhysicsProcess(double delta)
     {
-        MoveAndCollide(_currentInput * (float)delta * InputStrength);
+        // clamp the value within a range based on the walls and the scale of the paddle
+        var movementDelta = _currentInput.x * (float)delta * InputStrength;
+        var newPosition = Position;
+        var limit = Mathf.Max(0f, (Scale.x - 1f) / 2f) * widthMultiplier;
+        newPosition.x = Mathf.Clamp(
+            newPosition.x + movementDelta,
+            PaddleMinX + limit,
+            PaddleMaxX - limit);
+        Position = newPosition;
 
         if (_currentInput != Vector2.Zero)
         {
