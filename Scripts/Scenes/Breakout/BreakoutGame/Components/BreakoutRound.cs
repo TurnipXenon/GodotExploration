@@ -92,10 +92,18 @@ public partial class BreakoutRound : Node
         _target.OnBallHit(null);
     }
 
-    private void InformBallWasDone()
+    private void InformBallWasDone(Ball ball)
     {
-        // todo if ball <= 1
-        
+        // if there are multiple balls, the round is not yet over if there are more
+        // balls left, just remove this one
+        var ballList = Player.GetBallList();
+        if (ballList.Count > 1)
+        {
+            ballList.Remove(ball);
+            ball.QueueFree();
+            return;
+        }
+
         _currentLives--;
         GD.Print("Done?");
         if (_currentLives <= 0)

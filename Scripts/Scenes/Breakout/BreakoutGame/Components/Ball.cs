@@ -21,7 +21,7 @@ public partial class Ball : CharacterBody2D
     public Node2D Follow;
 
     [Signal]
-    public delegate void BallWasDoneEventHandler();
+    public delegate void BallWasDoneEventHandler(Ball ball);
 
     [Signal]
     public delegate void BallHitPaddleEventHandler(Ball ball);
@@ -59,7 +59,7 @@ public partial class Ball : CharacterBody2D
         // judge
         if (Position.y > KillZoneY)
         {
-            EmitSignal(SignalName.BallWasDone);
+            EmitSignal(SignalName.BallWasDone, this);
             _isDone = true;
             return;
         }
@@ -80,7 +80,6 @@ public partial class Ball : CharacterBody2D
                 
                 if (collider is PaddlePawn)
                 {
-                    GD.Print("Hit paddle!");
                     EmitSignal(SignalName.BallHitPaddle, this);
                 }
             }
