@@ -19,7 +19,7 @@ public partial class Target : StaticBody2D, IBallHittable
     private int _currentLives = MaxLives;
     private Color _additionalColor;
     private Sprite2D _sprite2D;
-    private AugmentationManager.ICallback _callback;
+    private Player.ICallback _callback;
     private bool _isDone = false;
 
     public override void _Ready()
@@ -63,7 +63,7 @@ public partial class Target : StaticBody2D, IBallHittable
             if (GD.Randf() < 1f)
             {
                 var augmentation = (AugmentationShell)AugmentationPrefab.Instantiate();
-                augmentation.SetAugmentationManager(_callback);
+                augmentation.SetAugmentationManager(_callback.GetAugmentationManager());
                 GetTree().Root.AddChild(augmentation);
                 augmentation.Position = Position;
                 
@@ -79,7 +79,7 @@ public partial class Target : StaticBody2D, IBallHittable
         ball?.InfluenceHorizontalByMultiplication((float)GD.RandRange(.5f, 1.5f));
     }
 
-    public void SetAugmentationManager(AugmentationManager.ICallback callback)
+    public void SetPlayer(Player.ICallback callback)
     {
         _callback = callback;
     }

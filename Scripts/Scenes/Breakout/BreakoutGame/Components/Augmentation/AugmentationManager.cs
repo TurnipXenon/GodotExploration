@@ -33,6 +33,7 @@ public partial class AugmentationManager : Node, AugmentationManager.ICallback
 			RemoveChild(_augmentationList[i]);
 		}
 		var duplicate = (AugmentationManager)Duplicate();
+		duplicate.SetPlayerCallback(_player);
 		QueueFree();
 		return duplicate;
 	}

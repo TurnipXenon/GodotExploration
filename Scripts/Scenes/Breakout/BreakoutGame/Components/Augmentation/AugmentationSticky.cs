@@ -14,9 +14,11 @@ public partial class AugmentationSticky : AugmentationBase
     public override void Initialize(Player.ICallback player)
     {
         base.Initialize(player);
-        
-        Player.GetBall().BallHitPaddle += OnPaddleHitBall;
-        Player.GetBall().BallStarted += OnBallStarted;
+        foreach (var ball in player.GetBallList())
+        {
+            ball.BallHitPaddle += OnPaddleHitBall;
+            ball.BallStarted += OnBallStarted;
+        }
     }
 
     private void OnBallStarted()
@@ -30,7 +32,7 @@ public partial class AugmentationSticky : AugmentationBase
         {
             return;
         }
-        
+
         _isSticky = true;
         ball.Stop();
     }

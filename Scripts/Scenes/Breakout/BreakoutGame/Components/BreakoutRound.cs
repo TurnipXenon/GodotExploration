@@ -69,7 +69,7 @@ public partial class BreakoutRound : Node
                 AddChild(target);
                 target.Position = startingPosition + (horizontalSpacing * columns) + (verticalSpacing * rows);
                 target.SetColor(_rng);
-                target.SetAugmentationManager(AugmentationManager);
+                target.SetPlayer(Player);
                 target.Killed += TargetKilled;
                 _targetCount++;
                 this._target = target;
@@ -94,6 +94,8 @@ public partial class BreakoutRound : Node
 
     private void InformBallWasDone()
     {
+        // todo if ball <= 1
+        
         _currentLives--;
         GD.Print("Done?");
         if (_currentLives <= 0)

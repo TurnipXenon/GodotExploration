@@ -54,9 +54,9 @@ offset_right = 573.0
 offset_bottom = 92.0
 text = "Testing"
 
-[node name="Player" type="Node" parent="." node_paths=PackedStringArray("Ball", "Paddle", "AugmentationManager")]
+[node name="Player" type="Node" parent="." node_paths=PackedStringArray("InitialBall", "Paddle", "AugmentationManager")]
 script = ExtResource("7_d4wuv")
-Ball = NodePath("../Ball")
+InitialBall = NodePath("../Ball")
 Paddle = NodePath("../Paddle")
 AugmentationManager = NodePath("../AugmentationManager")
 
