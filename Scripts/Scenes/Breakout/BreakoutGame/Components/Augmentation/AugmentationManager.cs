@@ -27,6 +27,9 @@ public partial class AugmentationManager : Node, AugmentationManager.ICallback
 
 	public AugmentationManager Reinitialize()
 	{
+		// QueueFree removes all it's children but at the bottom, we're duplicating the node
+		// So we instead QueueFree each children and remove it from the node manually
+		// Then we duplicate this node in a clean state
 		for (int i = _augmentationList.Count - 1; i >= 0; i--)
 		{
 			_augmentationList[i].Destroy();

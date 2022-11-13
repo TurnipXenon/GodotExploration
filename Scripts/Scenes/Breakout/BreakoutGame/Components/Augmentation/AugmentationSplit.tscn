@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5qhaam7hvapn"]
+
+[ext_resource type="Script" path="res://Scripts/Scenes/Breakout/BreakoutGame/Components/Augmentation/AugmentationSplit.cs" id="1_cblw7"]
+
+[node name="AugmentationSplit" type="Node"]
+script = ExtResource("1_cblw7")
+Duration = 10000.0
