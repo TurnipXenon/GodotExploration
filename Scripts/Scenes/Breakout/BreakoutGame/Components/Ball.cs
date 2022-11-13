@@ -86,13 +86,27 @@ public partial class Ball : CharacterBody2D
         }
     }
 
+    public void ForceStart()
+    {
+        _shouldStop = false;
+    }
+
+    public void ForceDirection(Ball referenceBall, float rotateBy)
+    {
+        _currentDirection = referenceBall._currentDirection.Rotated(rotateBy);
+    }
+
     public bool StartBall(float runningTime, bool isGoingRight)
     {
-        bool isNewlyStarted = _shouldStop;
+        if (!_shouldStop)
+        {
+            return false;
+        }
+        
         _shouldStop = false;
         EmitSignal(SignalName.BallStarted);
         _currentDirection = RandomizeInitialDirection(runningTime, isGoingRight);
-        return isNewlyStarted;
+        return true;
     }
 
     private Vector2 RandomizeInitialDirection(float runningTime, bool isGoingRight)

@@ -3,7 +3,7 @@ using Godot;
 
 namespace GodotExploration.Scripts.Scenes.Breakout.BreakoutGame.Components;
 
-public partial class BreakoutRound : Node
+public partial class BreakoutRound : Node2D
 {
     // todo(turnip): section this properties
     [Export]
@@ -30,6 +30,7 @@ public partial class BreakoutRound : Node
         Debug.Assert(Player != null);
         Debug.Assert(AugmentationManager != null);
 
+        Player.SetNode2DRoot(this);
         AugmentationManager.SetPlayerCallback(Player);
 
         _rng = new RandomNumberGenerator();
