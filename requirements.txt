@@ -11,5 +11,5 @@ platformdirs==2.5.2
 PyYAML==6.0
 radon==5.1.0
 six==1.16.0
-virtualenv==20.16.5
+virtualenv==20.26.6
 virtualenv-clone==0.5.7
